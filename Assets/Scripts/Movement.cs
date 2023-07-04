@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     Rigidbody rb;
+    AudioSource audioSource;
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationSpeed = 150f;
     
@@ -12,6 +13,9 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
+        // audioSource.Play(0);
+        // Debug.Log("started");
     }
 
     // Update is called once per frame
@@ -28,8 +32,17 @@ public class Movement : MonoBehaviour
             // Debug.Log("Pressed SPACE - Thrusting");
             // rb.AddRelativeForce(0, mainThrust *Time.deltaTime, 0);
             // Alternative code:
-            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); 
+            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
+            if (!audioSource.isPlaying) // if audio is not already playing then
+            {
+                audioSource.Play();
+            }
+        } // Make sure to close bracket here as a seperate block = above is if space bar is pressed
+        else // if space bar is not pressed = below is when space bar is not pressed
+        {
+            audioSource.Stop();
         }
+        
     }
 
     void ProcessRotation()
