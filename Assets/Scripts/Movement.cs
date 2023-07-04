@@ -26,9 +26,9 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             // Debug.Log("Pressed SPACE - Thrusting");
-            rb.AddRelativeForce(0, mainThrust *Time.deltaTime, 0);
+            // rb.AddRelativeForce(0, mainThrust *Time.deltaTime, 0);
             // Alternative code:
-            // rb.AddRelativeForce(Vector3.up); 
+            rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime); 
         }
     }
 
