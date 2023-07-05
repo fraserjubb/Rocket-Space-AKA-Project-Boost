@@ -260,6 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDeathDelay: 3
-  levelCompleteDelay: 5
-  playerCrash: {fileID: 8300000, guid: 763ef23a61625e24187436bcff1c00df, type: 3}
-  levelComplete: {fileID: 8300000, guid: 8fdeae4ad9839f147a7a6423e3fdfadd, type: 3}
+  levelLoadDelay: 5
+  crashAudio: {fileID: 8300000, guid: 763ef23a61625e24187436bcff1c00df, type: 3}
+  levelCompleteAudio: {fileID: 8300000, guid: 8fdeae4ad9839f147a7a6423e3fdfadd, type: 3}

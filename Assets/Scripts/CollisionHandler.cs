@@ -16,18 +16,20 @@ public class CollisionHandler : MonoBehaviour
     Movement rocketMovement;
 
     // STATE - private instance (member) variables e.g. "bool isAlive"
-    bool ToggleChange;
+    bool isTransitioning = false;
+    // bool ToggleChange;
 
 //START METHOD
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        ToggleChange = true;
+        // ToggleChange = true;
         rocketMovement = GetComponent<Movement>();
     }
 
     void OnCollisionEnter(Collision other)
     {
+        if (isTransitioning) {return;}
         // switch (variableToCompare)
         switch (other.gameObject.tag)
         {
@@ -52,33 +54,66 @@ public class CollisionHandler : MonoBehaviour
     void StartCrashSequence()
     {
         // To do: Add particle effect upon crash
-        Debug.Log("Sorry you've blown up");
+        isTransitioning = true;
         rocketMovement.enabled = false;
-        // if (audioSource.isPlaying != playerCrash)
-        // {
-            audioSource.Stop();
-        // }
-        // GetComponent<AudioSource>().enabled = false;
-        if (!audioSource.isPlaying && ToggleChange == true)
-        {
-            audioSource.PlayOneShot(crashAudio);
-            ToggleChange = false;
-        }
+        audioSource.Stop();
+        audioSource.PlayOneShot(crashAudio);
         Invoke("ReloadLevel", levelDeathDelay);
         // ReloadLevel();
     }
-    
+
     void LevelComplete()
     {
         // To do: Add particle effect upon crash
         string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
         Debug.Log($"{scene} Complete");
         rocketMovement.enabled = false;
+        isTransitioning = true;
         audioSource.Stop();
-        audioSource.PlayOneShot(levelCompleteAudio);        
+        audioSource.PlayOneShot(levelCompleteAudio);
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
+
+
+    // void StartCrashSequence()
+    // {
+    //     // To do: Add particle effect upon crash
+    //     Debug.Log("Sorry you've blown up");
+    //     rocketMovement.enabled = false;
+    //     if (isTransitioning == false)
+    //     {
+    //         audioSource.Stop();
+    //     }
+    //     // GetComponent<AudioSource>().enabled = false;
+    //     if (!audioSource.isPlaying && isTransitioning == false)
+    //     {
+    //         audioSource.PlayOneShot(crashAudio);
+    //         // ToggleChange = false;
+    //         isTransitioning = true;
+    //     }
+    //     Invoke("ReloadLevel", levelDeathDelay);
+    //     // ReloadLevel();
+    // }
+    
+    // void LevelComplete()
+    // {
+    //     // To do: Add particle effect upon crash
+    //     string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
+    //     Debug.Log($"{scene} Complete");
+    //     rocketMovement.enabled = false;
+    //     if (isTransitioning == false)
+    //     {
+    //         audioSource.Stop();
+    //     }
+    //     if (!audioSource.isPlaying && isTransitioning == false)
+    //     {
+    //         audioSource.PlayOneShot(levelCompleteAudio);
+    //         isTransitioning = true;
+    //     }        
+    //         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+    //         Invoke("LoadNextLevel", levelLoadDelay);
+    // }
     void LoadNextLevel()
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
