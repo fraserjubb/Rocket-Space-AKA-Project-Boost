@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CollisionHandler : MonoBehaviour
             // case valueA:
                 // ActionToTake();
                 // break;
-                
+
             case "Finish":
                 Debug.Log("Level Complete");
                 break;
@@ -27,24 +28,17 @@ public class CollisionHandler : MonoBehaviour
                 break;
 
             default:
-                Debug.Log("Sorry you've blown up");
+                ReloadLevel();
                 break;
         }
     }
 
-
-
-
-
-    // Start is called before the first frame update
-    void Start()
+    void ReloadLevel()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Sorry you've blown up");
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentLevelIndex); // return the number that the scene currently is playing
+        // SceneManager.LoadScene("Sandbox");
+        // SceneManager.LoadScene(0);
     }
 }
