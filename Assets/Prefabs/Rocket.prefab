@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7795841630604582463
 MeshFilter:
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainThrust: 1000
   rotationSpeed: 150
+  mainEngine: {fileID: 8300000, guid: 0a685b08e96be1b42aeca939e83f3f00, type: 3}
 --- !u!54 &7953800814457116762
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0a685b08e96be1b42aeca939e83f3f00, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -259,4 +260,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDeathDelay: 3
-  levelCompleteDelay: 10
+  levelCompleteDelay: 5
+  playerCrash: {fileID: 8300000, guid: 763ef23a61625e24187436bcff1c00df, type: 3}
+  levelComplete: {fileID: 8300000, guid: 8fdeae4ad9839f147a7a6423e3fdfadd, type: 3}

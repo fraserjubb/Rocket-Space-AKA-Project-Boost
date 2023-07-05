@@ -5,9 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
-    // string other.gameObject.tag;
+    // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] float levelDeathDelay = 10f;
     [SerializeField] float levelCompleteDelay = 10f;
+    [SerializeField] AudioClip playerCrash;
+    [SerializeField] AudioClip levelComplete;
+
+    // CACHE - e.g. references in the script for readability or speed
+    AudioSource audioSource;
+
+    // STATE - private instance (member) variables e.g. "bool isAlive"
+    bool ToggleChange;
+
+//START METHOD
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+        ToggleChange = true;
+    }
 
     void OnCollisionEnter(Collision other)
     {
@@ -38,7 +53,16 @@ public class CollisionHandler : MonoBehaviour
         // To do: Add particle effect upon crash
         Debug.Log("Sorry you've blown up");
         GetComponent<Movement>().enabled = false;
-        GetComponent<AudioSource>().enabled = false;
+        // if (audioSource.isPlaying != playerCrash)
+        // {
+            audioSource.Stop();
+        // }
+        // GetComponent<AudioSource>().enabled = false;
+        if (!audioSource.isPlaying && ToggleChange == true)
+        {
+            audioSource.PlayOneShot(playerCrash);
+            ToggleChange = false;
+        }
         Invoke("ReloadLevel", levelDeathDelay);
         // ReloadLevel();
     }
@@ -50,7 +74,8 @@ public class CollisionHandler : MonoBehaviour
         string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
         Debug.Log($"{scene} Complete");
         GetComponent<Movement>().enabled = false;
-        GetComponent<AudioSource>().enabled = false;       
+        audioSource.Stop();
+        audioSource.PlayOneShot(levelComplete);        
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         Invoke("LoadNextLevel", levelCompleteDelay);
     }
