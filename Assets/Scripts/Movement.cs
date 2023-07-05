@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationSpeed = 150f;
+    [SerializeField] AudioClip mainEngine;
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
             if (!audioSource.isPlaying) // if audio is not already playing then
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(mainEngine);
             }
         } // Make sure to close bracket here as a seperate block = above is if space bar is pressed
         else // if space bar is not pressed = below is when space bar is not pressed
