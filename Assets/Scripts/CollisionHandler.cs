@@ -26,10 +26,6 @@ public class CollisionHandler : MonoBehaviour
                 Debug.Log("This object is friendly");
                 break;
 
-            case "Fuel":
-                Debug.Log("You picked up fuel");
-                break;
-
             default:
                 StartCrashSequence();
                 break;
@@ -38,6 +34,8 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
+        // To do: Add SFX upon crash
+        // To do: Add particle effect upon crash
         GetComponent<Movement>().enabled = false;
         Invoke("ReloadLevel", levelDeathDelay);
         // ReloadLevel();
@@ -45,8 +43,10 @@ public class CollisionHandler : MonoBehaviour
     
     void LevelComplete()
     {
+        // Add string interpolation to say which level is complete in the console
         Debug.Log("Level Complete");
         GetComponent<Movement>().enabled = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         Invoke("LoadNextLevel", levelCompleteDelay);
     }
     void LoadNextLevel()
