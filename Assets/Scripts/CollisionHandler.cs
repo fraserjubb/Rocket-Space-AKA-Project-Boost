@@ -7,12 +7,13 @@ public class CollisionHandler : MonoBehaviour
 {
     // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] float levelDeathDelay = 10f;
-    [SerializeField] float levelCompleteDelay = 10f;
-    [SerializeField] AudioClip playerCrash;
-    [SerializeField] AudioClip levelComplete;
+    [SerializeField] float levelLoadDelay = 10f;
+    [SerializeField] AudioClip crashAudio;
+    [SerializeField] AudioClip levelCompleteAudio;
 
     // CACHE - e.g. references in the script for readability or speed
     AudioSource audioSource;
+    Movement rocketMovement;
 
     // STATE - private instance (member) variables e.g. "bool isAlive"
     bool ToggleChange;
@@ -22,6 +23,7 @@ public class CollisionHandler : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         ToggleChange = true;
+        rocketMovement = GetComponent<Movement>();
     }
 
     void OnCollisionEnter(Collision other)
@@ -49,10 +51,9 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
-        // To do: Add SFX upon crash
         // To do: Add particle effect upon crash
         Debug.Log("Sorry you've blown up");
-        GetComponent<Movement>().enabled = false;
+        rocketMovement.enabled = false;
         // if (audioSource.isPlaying != playerCrash)
         // {
             audioSource.Stop();
@@ -60,7 +61,7 @@ public class CollisionHandler : MonoBehaviour
         // GetComponent<AudioSource>().enabled = false;
         if (!audioSource.isPlaying && ToggleChange == true)
         {
-            audioSource.PlayOneShot(playerCrash);
+            audioSource.PlayOneShot(crashAudio);
             ToggleChange = false;
         }
         Invoke("ReloadLevel", levelDeathDelay);
@@ -69,15 +70,14 @@ public class CollisionHandler : MonoBehaviour
     
     void LevelComplete()
     {
-        // To do: Add SFX upon level complete
         // To do: Add particle effect upon crash
         string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
         Debug.Log($"{scene} Complete");
-        GetComponent<Movement>().enabled = false;
+        rocketMovement.enabled = false;
         audioSource.Stop();
-        audioSource.PlayOneShot(levelComplete);        
+        audioSource.PlayOneShot(levelCompleteAudio);        
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-        Invoke("LoadNextLevel", levelCompleteDelay);
+        Invoke("LoadNextLevel", levelLoadDelay);
     }
     void LoadNextLevel()
     {
