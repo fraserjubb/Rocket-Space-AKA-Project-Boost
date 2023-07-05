@@ -12,11 +12,11 @@ public class CollisionHandler : MonoBehaviour
         switch (other.gameObject.tag)
         {
             // case valueA:
-                // ActionToTake();
-                // break;
+            // ActionToTake();
+            // break;
 
             case "Finish":
-                Debug.Log("Level Complete");
+                LoadNextLevel();
                 break;
 
             case "Friendly":
@@ -33,11 +33,24 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
+    void LoadNextLevel()
+    {
+        Debug.Log("Level Complete");
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentLevelIndex + 1;
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            Debug.Log("GAME COMPLETE");
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
+    }
+
     void ReloadLevel()
     {
         Debug.Log("Sorry you've blown up");
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentLevelIndex); // return the number that the scene currently is playing
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex); // return the number that the scene currently is playing
         // SceneManager.LoadScene("Sandbox");
         // SceneManager.LoadScene(0);
     }
