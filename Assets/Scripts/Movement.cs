@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    Rigidbody rb;
-    AudioSource audioSource;
+//VARIABLES 
+    // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationSpeed = 150f;
     [SerializeField] AudioClip mainEngine;
+
+    // CACHE - e.g. references in the script for readability or speed
+    Rigidbody rb;
+    AudioSource audioSource;
     
-    // Start is called before the first frame update
+    // STATE - private instance (member) variables e.g. "bool isAlive"
+
+
+//START METHOD
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,13 +26,17 @@ public class Movement : MonoBehaviour
         // Debug.Log("started");
     }
 
-    // Update is called once per frame
+//UPDATE METHOD
     void Update()
     {
         ProcessThrust();
         ProcessRotation();
     }
 
+// PUBLIC METHODS
+
+
+// PRIVATE METHODS
     void ProcessThrust()
     {
         if (Input.GetKey(KeyCode.Space))
