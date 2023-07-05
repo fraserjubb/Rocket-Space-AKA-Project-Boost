@@ -36,17 +36,22 @@ public class CollisionHandler : MonoBehaviour
     {
         // To do: Add SFX upon crash
         // To do: Add particle effect upon crash
+        Debug.Log("Sorry you've blown up");
         GetComponent<Movement>().enabled = false;
+        GetComponent<AudioSource>().enabled = false;
         Invoke("ReloadLevel", levelDeathDelay);
         // ReloadLevel();
     }
     
     void LevelComplete()
     {
-        // Add string interpolation to say which level is complete in the console
-        Debug.Log("Level Complete");
+        // To do: Add SFX upon level complete
+        // To do: Add particle effect upon crash
+        string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
+        Debug.Log($"{scene} Complete");
         GetComponent<Movement>().enabled = false;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+        GetComponent<AudioSource>().enabled = false;       
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         Invoke("LoadNextLevel", levelCompleteDelay);
     }
     void LoadNextLevel()
@@ -63,7 +68,6 @@ public class CollisionHandler : MonoBehaviour
 
     void ReloadLevel()
     {
-        Debug.Log("Sorry you've blown up");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex); // return the number that the scene currently is playing
         // SceneManager.LoadScene("Sandbox");
