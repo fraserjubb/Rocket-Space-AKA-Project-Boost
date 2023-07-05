@@ -443,6 +443,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket
       objectReference: {fileID: 0}
+    - target: {fileID: 5154645096704609852, guid: 0c46074a28d5de24883dd06c4a8cea59, type: 3}
+      propertyPath: levelDeathDelay
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5154645096704609852, guid: 0c46074a28d5de24883dd06c4a8cea59, type: 3}
+      propertyPath: levelCompleteDelay
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5697371111610467315, guid: 0c46074a28d5de24883dd06c4a8cea59, type: 3}
       propertyPath: m_RootOrder
       value: 3

@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 public class CollisionHandler : MonoBehaviour
 {
     // string other.gameObject.tag;
+    [SerializeField] float levelDeathDelay = 10f;
+    [SerializeField] float levelCompleteDelay = 10f;
+
     void OnCollisionEnter(Collision other)
     {
         // switch (variableToCompare)
@@ -16,7 +19,7 @@ public class CollisionHandler : MonoBehaviour
             // break;
 
             case "Finish":
-                LoadNextLevel();
+                LevelComplete();
                 break;
 
             case "Friendly":
@@ -28,14 +31,26 @@ public class CollisionHandler : MonoBehaviour
                 break;
 
             default:
-                ReloadLevel();
+                StartCrashSequence();
                 break;
         }
     }
 
-    void LoadNextLevel()
+    void StartCrashSequence()
+    {
+        GetComponent<Movement>().enabled = false;
+        Invoke("ReloadLevel", levelDeathDelay);
+        // ReloadLevel();
+    }
+    
+    void LevelComplete()
     {
         Debug.Log("Level Complete");
+        GetComponent<Movement>().enabled = false;
+        Invoke("LoadNextLevel", levelCompleteDelay);
+    }
+    void LoadNextLevel()
+    {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentLevelIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
