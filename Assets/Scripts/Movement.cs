@@ -8,7 +8,13 @@ public class Movement : MonoBehaviour
     // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationSpeed = 150f;
+
     [SerializeField] AudioClip mainEngine;
+
+    [SerializeField] ParticleSystem mainEngineParticles;
+    [SerializeField] ParticleSystem leftEngineParticles;
+    [SerializeField] ParticleSystem rightEngineParticles;
+
 
     // CACHE - e.g. references in the script for readability or speed
     Rigidbody rb;
@@ -45,14 +51,16 @@ public class Movement : MonoBehaviour
             // rb.AddRelativeForce(0, mainThrust *Time.deltaTime, 0);
             // Alternative code:
             rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-            if (!audioSource.isPlaying) // if audio is not already playing then
+            if (!audioSource.isPlaying && !mainEngineParticles.isPlaying) // if audio is not already playing then
             {
                 audioSource.PlayOneShot(mainEngine);
+                mainEngineParticles.Play();
             }
         } // Make sure to close bracket here as a seperate block = above is if space bar is pressed
         else // if space bar is not pressed = below is when space bar is not pressed
         {
             audioSource.Stop();
+            mainEngineParticles.Stop();
         }
         
     }
@@ -63,7 +71,19 @@ public class Movement : MonoBehaviour
         {
             // Debug.Log("Pressed A - Rotate Left");
             ApplyRotation(rotationSpeed);
+            // if (!leftEngineParticles.isEmitting)
+            // {
+            //     leftEngineParticles.Play();
+            // }
+            // if (Input.GetKey(KeyCode.!A)
+            // {
+            //     leftEngineParticles.Stop();
+            // }
         }
+            // else// if space bar is not pressed = below is when space bar is not pressed
+            // {
+            // leftEngineParticles.Stop();
+            // }
 
         else if (Input.GetKey(KeyCode.D))
         {
