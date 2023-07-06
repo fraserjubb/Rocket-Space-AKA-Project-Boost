@@ -8,8 +8,12 @@ public class CollisionHandler : MonoBehaviour
     // PARAMETERS - for tuning, typically set in the editor
     [SerializeField] float levelDeathDelay = 10f;
     [SerializeField] float levelLoadDelay = 10f;
+
     [SerializeField] AudioClip crashAudio;
     [SerializeField] AudioClip levelCompleteAudio;
+
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem levelCompleteParticles;
 
     // CACHE - e.g. references in the script for readability or speed
     AudioSource audioSource;
@@ -53,24 +57,24 @@ public class CollisionHandler : MonoBehaviour
 
     void StartCrashSequence()
     {
-        // To do: Add particle effect upon crash
         isTransitioning = true;
         rocketMovement.enabled = false;
         audioSource.Stop();
         audioSource.PlayOneShot(crashAudio);
+        crashParticles.Play();
         Invoke("ReloadLevel", levelDeathDelay);
         // ReloadLevel();
     }
 
     void LevelComplete()
     {
-        // To do: Add particle effect upon crash
         string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
         Debug.Log($"{scene} Complete");
         rocketMovement.enabled = false;
         isTransitioning = true;
-        audioSource.Stop();
+        audioSource.Stop();        
         audioSource.PlayOneShot(levelCompleteAudio);
+        levelCompleteParticles.Play();        
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         Invoke("LoadNextLevel", levelLoadDelay);
     }
