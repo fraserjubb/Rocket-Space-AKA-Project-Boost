@@ -20,15 +20,15 @@ public class Movement : MonoBehaviour
     // CACHE - e.g. references in the script for readability or speed
     Rigidbody rb;
     AudioSource audioSource;
-    
+    // Physics physics;
     // STATE - private instance (member) variables e.g. "bool isAlive"
-
 
 //START METHOD
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        // physics = GetComponent<Physics>();
         // audioSource.Play(0);
         // Debug.Log("started");
     }
@@ -38,7 +38,6 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotation();
-        LoadNextLevel();
     }
 
 // PUBLIC METHODS
@@ -124,25 +123,12 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = false; // unfreezing rotation so that the physics system can take over.
     }
 
-    void LoadNextLevel()
-    {
-        if (Input.GetKey(KeyCode.L))
-        {
-            SkippingLevel();
-        }
-    }
+    // void TurnOffCollisions()
+    // {
+    //     if (Input.GetKey(KeyCode.C))
+    //     {
+    //         physics.IgnoreCollision();
+    //     }
+    // }
 
-    void SkippingLevel()
-    {
-        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-        int nextSceneIndex = currentLevelIndex + 1;
-
-        Debug.Log("pressed the L key -- SKIPPING LEVEL");
-
-        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
-        {
-            nextSceneIndex = 0;
-        }
-        SceneManager.LoadScene(nextSceneIndex);
-    }
 }

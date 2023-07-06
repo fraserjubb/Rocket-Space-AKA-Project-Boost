@@ -21,6 +21,7 @@ public class CollisionHandler : MonoBehaviour
 
     // STATE - private instance (member) variables e.g. "bool isAlive"
     bool isTransitioning = false;
+    bool collisionDisabled = false;
     // bool ToggleChange;
 
 //START METHOD
@@ -31,9 +32,26 @@ public class CollisionHandler : MonoBehaviour
         rocketMovement = GetComponent<Movement>();
     }
 
+    void Update()
+    {
+        RespondToDebugKeys();
+    }
+
+    void RespondToDebugKeys()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextLevel();
+        }
+        else if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionDisabled = !collisionDisabled;
+        }
+    }
+    
     void OnCollisionEnter(Collision other)
     {
-        if (isTransitioning) {return;}
+        if (isTransitioning || collisionDisabled) {return;} // || Means or
         // switch (variableToCompare)
         switch (other.gameObject.tag)
         {
@@ -137,4 +155,5 @@ public class CollisionHandler : MonoBehaviour
         // SceneManager.LoadScene("Sandbox");
         // SceneManager.LoadScene(0);
     }
+
 }
