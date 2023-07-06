@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -37,6 +38,7 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotation();
+        LoadNextLevel();
     }
 
 // PUBLIC METHODS
@@ -120,5 +122,27 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true; // freezing rotation so we can manually rotate.
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation = false; // unfreezing rotation so that the physics system can take over.
+    }
+
+    void LoadNextLevel()
+    {
+        if (Input.GetKey(KeyCode.L))
+        {
+            SkippingLevel();
+        }
+    }
+
+    void SkippingLevel()
+    {
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentLevelIndex + 1;
+
+        Debug.Log("pressed the L key -- SKIPPING LEVEL");
+
+        if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex);
     }
 }
