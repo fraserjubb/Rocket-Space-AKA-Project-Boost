@@ -71,24 +71,25 @@ public class Movement : MonoBehaviour
         {
             // Debug.Log("Pressed A - Rotate Left");
             ApplyRotation(rotationSpeed);
-            // if (!leftEngineParticles.isEmitting)
-            // {
-            //     leftEngineParticles.Play();
-            // }
-            // if (Input.GetKey(KeyCode.!A)
-            // {
-            //     leftEngineParticles.Stop();
-            // }
+            if (!rightEngineParticles.isPlaying)
+            {
+                rightEngineParticles.Play();
+            }
         }
-            // else// if space bar is not pressed = below is when space bar is not pressed
-            // {
-            // leftEngineParticles.Stop();
-            // }
 
         else if (Input.GetKey(KeyCode.D))
         {
             // Debug.Log("Pressed D - Rotate Right");
             ApplyRotation(-rotationSpeed);
+            if (!leftEngineParticles.isPlaying)
+            {
+                leftEngineParticles.Play();
+            }
+        }
+        else
+        {
+            rightEngineParticles.Stop();
+            leftEngineParticles.Stop();
         }
     }
 
