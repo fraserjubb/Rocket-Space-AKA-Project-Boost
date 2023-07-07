@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Launch Pad
+  m_Name: Obstacle 3
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -79,6 +79,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 1, b: 0.6007409, a: 1}
-    - _EmissionColor: {r: 0.0043016216, g: 0.2735849, b: 0.08983864, a: 1}
+    - _Color: {r: 0.007861584, g: 0.33788383, b: 0.5, a: 1}
+    - _EmissionColor: {r: 0, g: 0.07486051, b: 0.26415092, a: 1}
   m_BuildTextureStacks: []
