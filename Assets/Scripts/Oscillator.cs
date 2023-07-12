@@ -19,7 +19,7 @@ public class Oscillator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (period <= Mathf.Epsilon) {return; }
+        if (period <= Mathf.Epsilon) {return; } // stops the NaN error if period is 0
         float cycles = Time.time / period; // how much time has elapsed divided by a period of time. This is continually growing over time.
         
         const float tau = Mathf.PI *2; // constant value of 6.283
