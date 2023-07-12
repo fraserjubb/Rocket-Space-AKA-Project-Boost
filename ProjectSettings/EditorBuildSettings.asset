@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/PlayTesting.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/OverTheHill.unity
+    guid: 5ae26408b449536428a908405b03db49
+  - enabled: 1
+    path: Assets/Scenes/Under.unity
+    guid: c5ca224b655503c4a83ad472b49c987d
   - enabled: 1
     path: Assets/Scenes/Symmetrical.unity
     guid: c915a48db2f8b9747ab09bee66ead2a6
