@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Symmetrical.unity
     guid: c915a48db2f8b9747ab09bee66ead2a6
   - enabled: 1
+    path: Assets/Scenes/3 Cubes.unity
+    guid: 4ad0a8d0bdf473d4bbc6af91721e2afc
+  - enabled: 1
     path: Assets/Scenes/Complex.unity
     guid: dd90fe4449ac87a47a3a0ea0e77c9d22
   m_configObjects: {}
