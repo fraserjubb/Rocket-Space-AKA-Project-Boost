@@ -143,7 +143,7 @@ public class CollisionHandler : MonoBehaviour
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
             Debug.Log("GAME COMPLETE");
-            nextSceneIndex = 0;
+            nextSceneIndex = 1;
         }
         SceneManager.LoadScene(nextSceneIndex);
     }
