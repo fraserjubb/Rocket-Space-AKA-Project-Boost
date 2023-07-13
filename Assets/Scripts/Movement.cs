@@ -38,6 +38,7 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotation();
+        ReturnToMenu();
     }
 
 // PUBLIC METHODS
@@ -121,6 +122,14 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = true; // freezing rotation so we can manually rotate.
         transform.Rotate(Vector3.forward * rotationThisFrame * Time.deltaTime);
         rb.freezeRotation = false; // unfreezing rotation so that the physics system can take over.
+    }
+
+    void ReturnToMenu()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
     }
 
     // void TurnOffCollisions()
