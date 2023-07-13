@@ -39,7 +39,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760717737511697950}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
@@ -478,7 +478,7 @@ Transform:
   - {fileID: 8404119777706682510}
   - {fileID: 6696586082910888515}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7795841630604582463
 MeshFilter:
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDeathDelay: 3
-  levelLoadDelay: 5
+  levelLoadDelay: 3
   crashAudio: {fileID: 8300000, guid: 763ef23a61625e24187436bcff1c00df, type: 3}
   levelCompleteAudio: {fileID: 8300000, guid: 8fdeae4ad9839f147a7a6423e3fdfadd, type: 3}
   crashParticles: {fileID: 4646960211905435300}
@@ -1205,13 +1205,13 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9061690482164199157}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 16
-  m_Range: 3.1075928
+  m_Intensity: 1.36
+  m_Range: 34.37
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

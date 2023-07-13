@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Complex.unity
     guid: dd90fe4449ac87a47a3a0ea0e77c9d22
+  - enabled: 1
+    path: Assets/Scenes/Diagonals.unity
+    guid: c7c90faf153bd7b46a09b1867b572152
   m_configObjects: {}
