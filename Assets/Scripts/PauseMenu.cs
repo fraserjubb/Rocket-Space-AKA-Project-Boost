@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
     public static bool gameIsPaused = false;
 
     public GameObject pauseMenuUI; // Allows for game object to be applied in unity (similar to Serialize Field)
+    public GameObject confirmationMenuUI;
 
     // Update is called once per frame
     void Update()
@@ -38,14 +39,21 @@ public class PauseMenu : MonoBehaviour
         gameIsPaused = true;
     }
 
-    public void ReturnToMenu()
+    public void Confirmation()
     {
-        SceneManager.LoadScene("Main Menu");
+        pauseMenuUI.SetActive(false);
+        confirmationMenuUI.SetActive(true);
     }
 
-    // AreYouSure
-    // confirmation.SetActive()
-    // if yes > returnToMenu()
-    // if no > back to Pause()
+    public void ReturnToPause()
+    {
+        confirmationMenuUI.SetActive(false);        
+        pauseMenuUI.SetActive(true);
+    }
 
+    public void ReturnToMenu()
+    {
+        Resume();
+        SceneManager.LoadScene("Main Menu");
+    }
 }
