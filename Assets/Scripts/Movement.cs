@@ -38,7 +38,7 @@ public class Movement : MonoBehaviour
     {
         ProcessThrust();
         ProcessRotation();
-        ReturnToMenu();
+        // ReturnToMenu();
     }
 
 // PUBLIC METHODS
@@ -124,13 +124,13 @@ public class Movement : MonoBehaviour
         rb.freezeRotation = false; // unfreezing rotation so that the physics system can take over.
     }
 
-    void ReturnToMenu()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            SceneManager.LoadScene("Main Menu");
-        }
-    }
+    // // void ReturnToMenu()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Escape))
+    //     {
+    //         SceneManager.LoadScene("Main Menu");
+    //     }
+    // }
 
     // void TurnOffCollisions()
     // {
