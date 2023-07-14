@@ -42,4 +42,10 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Main Menu");
     }
+
+    // AreYouSure
+    // confirmation.SetActive()
+    // if yes > returnToMenu()
+    // if no > back to Pause()
+
 }
