@@ -1191,6 +1191,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba50ac0b0e9e55e40ba6a56c468f8724, type: 3}
+--- !u!1 &869333393 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8254703029546842356, guid: 6a05131f3a2b4d045b781060c7e452e4, type: 3}
+  m_PrefabInstance: {fileID: 1972290759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1111392418
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2091,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1725241829427517318, guid: 6a05131f3a2b4d045b781060c7e452e4, type: 3}
+      propertyPath: currentLevelBox
+      value: 
+      objectReference: {fileID: 869333393}
     - target: {fileID: 6224736153422704196, guid: 6a05131f3a2b4d045b781060c7e452e4, type: 3}
       propertyPath: m_Pivot.x
       value: 0

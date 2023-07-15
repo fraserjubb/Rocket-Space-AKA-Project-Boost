@@ -9,6 +9,8 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI; // Allows for game object to be applied in unity (similar to Serialize Field)
     public GameObject confirmationMenuUI;
+    public GameObject currentLevelBox;
+
 
     // Update is called once per frame
     void Update()
@@ -28,6 +30,7 @@ public class PauseMenu : MonoBehaviour
     public void Resume()
     {
         pauseMenuUI.SetActive(false);
+        currentLevelBox.SetActive(true);
         Time.timeScale = 1f; // Allows for gameplay to pass at a normal rate
         gameIsPaused = false;
     }
@@ -35,6 +38,7 @@ public class PauseMenu : MonoBehaviour
     void Pause()
     {
         pauseMenuUI.SetActive(true);
+        currentLevelBox.SetActive(false);
         Time.timeScale = 0f; // Completely freezes gameplay
         gameIsPaused = true;
     }
