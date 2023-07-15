@@ -39,11 +39,11 @@ public class CollisionHandler : MonoBehaviour
 
     void RespondToDebugKeys()
     {
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.L) && PauseMenu.gameIsPaused == false)
         {
             LoadNextLevel();
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKeyDown(KeyCode.C) && PauseMenu.gameIsPaused == false)
         {
             collisionDisabled = !collisionDisabled;
         }
