@@ -357,7 +357,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 258}
-  m_SizeDelta: {x: 1227.9297, y: 134.5766}
+  m_SizeDelta: {x: 1489.499, y: 161.6356}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655891668
 MonoBehaviour:
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ROCKET SPACE
+  m_text: GAME COMPLETED
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -493,7 +493,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -108}
-  m_SizeDelta: {x: 505.229, y: 306.7972}
+  m_SizeDelta: {x: 550.3274, y: 294.7709}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &790392920
 MonoBehaviour:
@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 1323029263}
   - component: {fileID: 1323029262}
   m_Layer: 5
-  m_Name: New Game (Text)
+  m_Name: Play (Text)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -659,7 +659,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NEW GAME
+  m_text: PLAY AGAIN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 1680196140}
   - component: {fileID: 1680196139}
   m_Layer: 5
-  m_Name: NewGameButton
+  m_Name: PlayButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,7 +985,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 100}
-  m_SizeDelta: {x: 503.3337, y: 109.8037}
+  m_SizeDelta: {x: 560.458, y: 104.9019}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1680196139
 MonoBehaviour:
@@ -1119,7 +1119,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -100}
-  m_SizeDelta: {x: 251.8955, y: 89.8691}
+  m_SizeDelta: {x: 260.9148, y: 86.8626}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1819522338
 MonoBehaviour:
@@ -1341,7 +1341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (BASED ON "PROJECT BOOST" BY GAMEDEV.TV)
+  m_text: THANKS FOR PLAYING!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
