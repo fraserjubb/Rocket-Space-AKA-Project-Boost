@@ -5,14 +5,18 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public GameObject spaceBarText;
-    public GameObject rotateDirectionText;
+    public GameObject rotateRightText;
+    public GameObject rotateLeftText;
 
     bool spaceBarPressed = false;
+    bool dButtonPressed = false;
+    bool aButtonPressed = false;
     
     // Start is called before the first frame update
     void Start()
     {
-        rotateDirectionText.SetActive(false);
+        rotateRightText.SetActive(false);
+        rotateLeftText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -22,12 +26,19 @@ public class Tutorial : MonoBehaviour
         {
             spaceBarText.SetActive(false);
             spaceBarPressed = true;
-            rotateDirectionText.SetActive(true);
+            rotateRightText.SetActive(true);
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true)
+        {
+            rotateRightText.SetActive(false);
+            dButtonPressed = true;
+            rotateLeftText.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true)
         {
             Debug.Log("I am being reached");
-            rotateDirectionText.SetActive(false);
+            aButtonPressed = true;
+            rotateLeftText.SetActive(false);
         }
     }
 
