@@ -13,6 +13,8 @@ public class Tutorial : MonoBehaviour
     bool spaceBarPressed = false;
     bool dButtonPressed = false;
     bool aButtonPressed = false;
+
+    public static bool initialTutorialIsRunning = true;
     
     // Start is called before the first frame update
     void Start()
@@ -30,6 +32,7 @@ public class Tutorial : MonoBehaviour
         {
             nextLevelText.SetActive(false);
             leftMousePressed = true;
+            initialTutorialIsRunning = false;
             spaceBarText.SetActive(true);
             Time.timeScale = 1f;
         }
