@@ -15,12 +15,12 @@ public class Tutorial : MonoBehaviour
     // bool aButtonPressed = false;
     
     // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     spaceBarText.SetActive(false);
-    //     rotateRightText.SetActive(false);
-    //     rotateLeftText.SetActive(false);
-    // }
+    void Start()
+    {
+        spaceBarText.SetActive(false);
+        rotateRightText.SetActive(false);
+        // rotateLeftText.SetActive(false);
+    }
 
     // // Update is called once per frame
     void Update()
