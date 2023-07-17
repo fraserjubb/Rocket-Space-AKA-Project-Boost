@@ -19,15 +19,18 @@ public class DialogueManager : MonoBehaviour
     // GAMEPLAY TUTORIAL VARIABLES, BOOLEANS:
     public GameObject spaceBarText;
     public GameObject rotateRightText;    
+    public GameObject rotateLeftText;
 
     bool spaceBarPressed = false;
-
+    bool dButtonPressed = false;
+    bool aButtonPressed = false;
 
     // Start is called before the first frame update
     void Start()
     {
         spaceBarText.SetActive(false);
         rotateRightText.SetActive(false);
+        rotateLeftText.SetActive(false);
         
         sentences = new Queue<string>();
     }
@@ -40,6 +43,18 @@ public class DialogueManager : MonoBehaviour
             spaceBarPressed = true;
             rotateRightText.SetActive(true);
         }
+        if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true)
+        {
+            rotateRightText.SetActive(false);
+            dButtonPressed = true;
+            rotateLeftText.SetActive(true);
+        }
+        if (Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true)
+        {
+            Debug.Log("I am being reached");
+            aButtonPressed = true;
+            rotateLeftText.SetActive(false);
+        }           
     }
 
     public void StartDialogue (Dialogue dialogue)
