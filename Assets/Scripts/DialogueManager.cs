@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -37,25 +36,43 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
+        BoostingTutorial();
+        RotateRightTutorial();
+        RotateLeftTutorial();
+    }
+
+
+// METHODS:
+    void BoostingTutorial()
+    {
         if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false)
         {
             spaceBarText.SetActive(false);
             spaceBarPressed = true;
             rotateRightText.SetActive(true);
         }
+    }
+
+    void RotateRightTutorial()
+    {
         if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true)
         {
             rotateRightText.SetActive(false);
             dButtonPressed = true;
             rotateLeftText.SetActive(true);
         }
+    }
+
+    void RotateLeftTutorial()
+    {
         if (Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true)
         {
             Debug.Log("I am being reached");
             aButtonPressed = true;
             rotateLeftText.SetActive(false);
-        }           
+        }
     }
+
 
     public void StartDialogue (Dialogue dialogue)
     {
