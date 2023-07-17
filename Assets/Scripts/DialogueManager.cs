@@ -24,6 +24,8 @@ public class DialogueManager : MonoBehaviour
 
         // nameText.text = dialogue.name;
 
+        Time.timeScale = 0f;
+
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -49,6 +51,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         initialTutorialText.SetActive(false);
+        Time.timeScale = 1f;        
         Debug.Log("End of conversation");
     }
 }

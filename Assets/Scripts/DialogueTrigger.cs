@@ -5,10 +5,11 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
+    float delayTime = Mathf.Epsilon;
 
     void Start()
     {
-        Invoke("TriggerDialogue", 0.5f);
+        Invoke("TriggerDialogue", delayTime);
     }
 
     public void TriggerDialogue()
