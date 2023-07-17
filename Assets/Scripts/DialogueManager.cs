@@ -81,7 +81,6 @@ public class DialogueManager : MonoBehaviour
         // nameText.text = dialogue.name;
 
         Time.timeScale = 0f;
-
         sentences.Clear();
 
         foreach (string sentence in dialogue.sentences)
@@ -98,6 +97,9 @@ public class DialogueManager : MonoBehaviour
         {
             EndDialogue();
             return;
+        } else if (Input.GetKey(KeyCode.Space))
+        {
+            return; // Space Bar will do nothing whilst initial tutorial is playing.
         }
         
         string sentence = sentences.Dequeue();
