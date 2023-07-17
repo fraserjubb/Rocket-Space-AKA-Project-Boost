@@ -47,7 +47,7 @@ public class Movement : MonoBehaviour
 // PRIVATE METHODS
     void ProcessThrust()
     {
-        if (Input.GetKey(KeyCode.Space) && PauseMenu.gameIsPaused == false && Tutorial.initialTutorialIsRunning == false)
+        if (Input.GetKey(KeyCode.Space) && PauseMenu.gameIsPaused == false) // && Tutorial.initialTutorialIsRunning == false)
         {
             StartThrusting();
         } // Make sure to close bracket here as a seperate block = above is if space bar is pressed
