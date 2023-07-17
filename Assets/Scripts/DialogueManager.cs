@@ -108,6 +108,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        if (Input.GetKey(KeyCode.Space)){return;}
         initialTutorialText.SetActive(false);
         Time.timeScale = 1f;
         initialTutorialIsRunning = false;
