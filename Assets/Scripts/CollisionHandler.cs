@@ -22,6 +22,9 @@ public class CollisionHandler : MonoBehaviour
     // STATE - private instance (member) variables e.g. "bool isAlive"
     bool isTransitioning = false;
     bool collisionDisabled = false;
+
+    public static bool playerHasDied = false;
+
     // bool ToggleChange;
 
 //START METHOD
@@ -77,6 +80,7 @@ public class CollisionHandler : MonoBehaviour
     {
         isTransitioning = true;
         rocketMovement.enabled = false;
+        playerHasDied = true;
         audioSource.Stop();
         audioSource.PlayOneShot(crashAudio);
         crashParticles.Play();

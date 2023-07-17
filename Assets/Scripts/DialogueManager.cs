@@ -10,7 +10,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject initialTutorialText;
 
-    public static bool initialTutorialIsRunning = true;
+    public static bool initialTutorialIsRunning;
+    public static bool gameplayTutorialIsRunning;
 
     private Queue<string> sentences; //Queue is is a FiFo collection (first in, first out). When we load a new dialogue, all sentences will go in queue. This queue is of type string.
 
@@ -20,9 +21,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject rotateRightText;    
     public GameObject rotateLeftText;
 
-    bool spaceBarPressed = false;
-    bool dButtonPressed = false;
-    bool aButtonPressed = false;
+    bool spaceBarPressed;
+    bool dButtonPressed;
+    bool aButtonPressed;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +31,15 @@ public class DialogueManager : MonoBehaviour
         spaceBarText.SetActive(false);
         rotateRightText.SetActive(false);
         rotateLeftText.SetActive(false);
-        
+
+        initialTutorialIsRunning = true;
+        gameplayTutorialIsRunning = true;
+
+        spaceBarPressed = false;
+        dButtonPressed = false;
+        aButtonPressed = false;
+
+
         sentences = new Queue<string>();
     }
 
@@ -47,6 +56,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false)
         {
+            Time.timeScale = 1f;
             spaceBarText.SetActive(false);
             spaceBarPressed = true;
             rotateRightText.SetActive(true);
@@ -70,6 +80,7 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("I am being reached");
             aButtonPressed = true;
             rotateLeftText.SetActive(false);
+            gameplayTutorialIsRunning = false;
         }
     }
 
@@ -80,8 +91,9 @@ public class DialogueManager : MonoBehaviour
 
         // nameText.text = dialogue.name;
 
-        Time.timeScale = 0f;
         sentences.Clear();
+
+        Time.timeScale = 0f;
 
         foreach (string sentence in dialogue.sentences)
         {
@@ -110,7 +122,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space)){return;}
         initialTutorialText.SetActive(false);
-        Time.timeScale = 1f;
         initialTutorialIsRunning = false;
         spaceBarText.SetActive(true);        
         Debug.Log("End of conversation");
