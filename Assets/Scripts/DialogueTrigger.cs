@@ -6,10 +6,10 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    // void Start()
-    // {
-    //     TriggerDialogue();
-    // }
+    void Start()
+    {
+        Invoke("TriggerDialogue", 0.5f);
+    }
 
     public void TriggerDialogue()
     {
