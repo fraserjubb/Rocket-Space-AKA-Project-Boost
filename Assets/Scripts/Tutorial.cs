@@ -4,30 +4,27 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
-    // public GameObject spaceBarText;
-    // public GameObject rotateRightText;
+    public GameObject spaceBarText;
+    public GameObject rotateRightText;
     // public GameObject rotateLeftText;
     // public GameObject nextLevelText;
 
     // bool leftMousePressed = false;
-    // bool spaceBarPressed = false;
+    bool spaceBarPressed = false;
     // bool dButtonPressed = false;
     // bool aButtonPressed = false;
-
-    // public static bool initialTutorialIsRunning = true;
     
     // // Start is called before the first frame update
     // void Start()
     // {
-    //     Time.timeScale = 0f;
     //     spaceBarText.SetActive(false);
     //     rotateRightText.SetActive(false);
     //     rotateLeftText.SetActive(false);
     // }
 
     // // Update is called once per frame
-    // void Update()
-    // {
+    void Update()
+    {
     //     if (Input.GetMouseButton(0) && leftMousePressed == false)
     //     {
     //         nextLevelText.SetActive(false);
@@ -37,12 +34,12 @@ public class Tutorial : MonoBehaviour
     //         Time.timeScale = 1f;
     //     }
         
-    //     if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && leftMousePressed == true)
-    //     {
-    //         spaceBarText.SetActive(false);
-    //         spaceBarPressed = true;
-    //         rotateRightText.SetActive(true);
-    //     }
+        if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false)
+        {
+            spaceBarText.SetActive(false);
+            spaceBarPressed = true;
+            rotateRightText.SetActive(true);
+        }
     //     if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true)
     //     {
     //         rotateRightText.SetActive(false);
@@ -55,6 +52,6 @@ public class Tutorial : MonoBehaviour
     //         aButtonPressed = true;
     //         rotateLeftText.SetActive(false);
     //     }
-    // }
+    }
 
 }

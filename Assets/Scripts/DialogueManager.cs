@@ -10,6 +10,9 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject initialTutorialText;
 
+    public static bool initialTutorialIsRunning = true;
+
+
     private Queue<string> sentences; //Queue is is a FiFo collection (first in, first out). When we load a new dialogue, all sentences will go in queue. This queue is of type string.
 
     // Start is called before the first frame update
@@ -51,7 +54,8 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         initialTutorialText.SetActive(false);
-        Time.timeScale = 1f;        
+        Time.timeScale = 1f;
+        initialTutorialIsRunning = false;        
         Debug.Log("End of conversation");
     }
 }
