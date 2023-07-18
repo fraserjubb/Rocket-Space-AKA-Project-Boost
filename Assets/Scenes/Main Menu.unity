@@ -1523,6 +1523,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
+      propertyPath: sounds.Array.data[0].volume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 923930639965808183, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
       propertyPath: m_Name
       value: AudioManager
