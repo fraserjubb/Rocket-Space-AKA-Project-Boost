@@ -1346,6 +1346,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 051737ea01010814488c798dcfcc24a5, type: 3}
     volume: 1
     pitch: 1
+    loop: 1
     source: {fileID: 0}
 --- !u!4 &1827232136
 Transform:
