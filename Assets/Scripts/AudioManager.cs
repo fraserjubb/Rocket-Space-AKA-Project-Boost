@@ -40,8 +40,7 @@ public class AudioManager : MonoBehaviour
 
     void Update()
     {
-        Pause("Theme");
-        Resume("Theme");
+        PauseAndResume("Theme");
     }
 
     public void Play(string name)
@@ -55,7 +54,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void Pause(string name)
+    public void PauseAndResume(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         if (s == null)
@@ -64,17 +63,7 @@ public class AudioManager : MonoBehaviour
             return;
         } else if(PauseMenu.gameIsPaused == true)
         {s.source.Pause();}
-    }
-
-    public void Resume(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
-            return;
-        } else if(PauseMenu.gameIsPaused == false)
+        else if(PauseMenu.gameIsPaused == false)
         {s.source.UnPause();}
     }
-
 }
