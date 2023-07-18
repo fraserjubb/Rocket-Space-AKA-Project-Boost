@@ -38,6 +38,12 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
 
+    void Update()
+    {
+        Pause("Theme");
+        Resume("Theme");
+    }
+
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -47,6 +53,28 @@ public class AudioManager : MonoBehaviour
             return;
         }
         s.source.Play();
+    }
+
+    public void Pause(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
+            return;
+        } else if(PauseMenu.gameIsPaused == true)
+        {s.source.Pause();}
+    }
+
+    public void Resume(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
+            return;
+        } else if(PauseMenu.gameIsPaused == false)
+        {s.source.UnPause();}
     }
 
 }
