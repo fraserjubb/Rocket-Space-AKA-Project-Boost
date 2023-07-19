@@ -58,6 +58,7 @@ public class PauseMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         Resume();
+        currentLevelBox.SetActive(false);
         SceneManager.LoadScene("Main Menu");
     }
 }
