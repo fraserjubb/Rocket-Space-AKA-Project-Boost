@@ -42,10 +42,11 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
 
-    void Update()
-    {
-        PauseAndResume("Theme");
-    }
+    // // If wanting music paused on pause menu.
+    // void Update()
+    // {
+    //     PauseAndResume("Theme");
+    // }
 
     public void Play(string name)
     {
