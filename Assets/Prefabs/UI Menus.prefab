@@ -1651,7 +1651,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2176,8 +2176,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80450868007f048448eddfa306728164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 2936717966887097943}
   Mixer: {fileID: 24100000, guid: 8b3941e4d9694224494188299e685cb8, type: 2}
-  ValueText: {fileID: 6643129025141415570}
+  volumeTextUI: {fileID: 6643129025141415570}
   MixMode: 0
 --- !u!1 &6513366048265802937
 GameObject:
@@ -2749,7 +2750,7 @@ RectTransform:
   - {fileID: 2900033226335063653}
   - {fileID: 8969309948398375719}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
