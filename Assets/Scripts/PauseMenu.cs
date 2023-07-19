@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool gameIsPaused = false;
+    public static bool onSecondaryPauseMenu = false;
 
     public GameObject pauseMenuUI; // Allows for game object to be applied in unity (similar to Serialize Field)
     public GameObject confirmationMenuUI;
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)  && DialogueManager.initialTutorialIsRunning == false && DialogueManager.gameplayTutorialIsRunning == false)
+        if (Input.GetKeyDown(KeyCode.P) && DialogueManager.initialTutorialIsRunning == false && DialogueManager.gameplayTutorialIsRunning == false && onSecondaryPauseMenu == false)
         {
             if (gameIsPaused)
             {
@@ -33,6 +34,7 @@ public class PauseMenu : MonoBehaviour
         currentLevelBox.SetActive(true);
         Time.timeScale = 1f; // Allows for gameplay to pass at a normal rate
         gameIsPaused = false;
+        onSecondaryPauseMenu = false;
     }
 
     void Pause()
@@ -47,12 +49,19 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         confirmationMenuUI.SetActive(true);
+        onSecondaryPauseMenu = true;
+    }
+
+    public void Options()
+    {
+        onSecondaryPauseMenu = true;
     }
 
     public void ReturnToPause()
     {
         confirmationMenuUI.SetActive(false);        
         pauseMenuUI.SetActive(true);
+        onSecondaryPauseMenu = false;
     }
 
     public void ReturnToMenu()
