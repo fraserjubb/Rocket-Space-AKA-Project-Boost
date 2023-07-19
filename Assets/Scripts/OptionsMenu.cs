@@ -31,6 +31,7 @@ public class OptionsMenu : MonoBehaviour
         {
             case AudioMixMode.LogrithmicMixerVolume:
             Mixer.SetFloat("Volume", Mathf.Log10(volume)*20);
+            Debug.Log("I am being hit");
             break;
         }
 
@@ -54,6 +55,7 @@ public class OptionsMenu : MonoBehaviour
     {
         float volumeValue = PlayerPrefs.GetFloat("VolumeValue");
         volumeSlider.value = volumeValue;
-        AudioListener.volume = volumeValue;
+        // AudioListener.volume = volumeValue; // Only use this line if want ALL audio linked to this
+        Debug.Log("Alas it is I!!");
     }
 }
