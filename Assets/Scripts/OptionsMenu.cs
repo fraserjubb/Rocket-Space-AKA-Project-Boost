@@ -34,6 +34,8 @@ public class OptionsMenu : MonoBehaviour
             break;
         }
 
+        SaveVolumeButton();
+
     }
 
     public enum AudioMixMode
