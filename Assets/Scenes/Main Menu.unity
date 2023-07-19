@@ -1142,8 +1142,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 699044122}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: OnChangeSlider
-        m_Mode: 0
+        m_MethodName: SaveVolumeButton
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1164,8 +1164,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80450868007f048448eddfa306728164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 699044121}
   Mixer: {fileID: 24100000, guid: 8b3941e4d9694224494188299e685cb8, type: 2}
-  ValueText: {fileID: 546687238}
+  volumeTextUI: {fileID: 546687238}
   MixMode: 0
 --- !u!1 &790392918
 GameObject:
