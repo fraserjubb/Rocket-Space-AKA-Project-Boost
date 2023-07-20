@@ -10,7 +10,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float levelLoadDelay = 10f;
 
     private AudioManager crashAudio;
-    [SerializeField] AudioClip levelCompleteAudio;
+    private AudioManager levelCompleteAudio;
 
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem levelCompleteParticles;
@@ -34,6 +34,7 @@ public class CollisionHandler : MonoBehaviour
         // ToggleChange = true;
         rocketMovement = GetComponent<Movement>();
         crashAudio = FindObjectOfType<AudioManager>();
+        levelCompleteAudio = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -107,7 +108,7 @@ public class CollisionHandler : MonoBehaviour
         rocketMovement.enabled = false;
         isTransitioning = true;
         audioSource.Stop();        
-        audioSource.PlayOneShot(levelCompleteAudio);
+        levelCompleteAudio.Play("Level Complete SFX");
         levelCompleteParticles.Play();        
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
         Invoke("LoadNextLevel", levelLoadDelay);
