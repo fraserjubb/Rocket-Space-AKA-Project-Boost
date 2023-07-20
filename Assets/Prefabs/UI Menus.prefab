@@ -462,8 +462,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -102.36, y: 56}
-  m_SizeDelta: {x: -204.7137, y: 7.1748}
+  m_AnchoredPosition: {x: -54.706177, y: 56}
+  m_SizeDelta: {x: -109.4062, y: 7.1748}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6432555663197776754
 CanvasRenderer:
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'VOLUME:'
+  m_text: 'MUSIC VOLUME:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2774,7 +2774,7 @@ RectTransform:
   - {fileID: 2900033226335063653}
   - {fileID: 8969309948398375719}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
