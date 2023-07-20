@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     sentences:
-    - "Reach the \nYELLOW LANDING PAD \nto complete each level.\r"
+    - "Reach the \nOTHER LANDING PAD \nto complete each level.\r"
     - 'Avoid hitting
 
       all obstacles
