@@ -9,7 +9,7 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float levelDeathDelay = 10f;
     [SerializeField] float levelLoadDelay = 10f;
 
-    [SerializeField] AudioClip crashAudio;
+    private AudioManager crashAudio;
     [SerializeField] AudioClip levelCompleteAudio;
 
     [SerializeField] ParticleSystem crashParticles;
@@ -33,6 +33,7 @@ public class CollisionHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         // ToggleChange = true;
         rocketMovement = GetComponent<Movement>();
+        crashAudio = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -82,9 +83,20 @@ public class CollisionHandler : MonoBehaviour
         rocketMovement.enabled = false;
         playerHasDied = true;
         audioSource.Stop();
-        audioSource.PlayOneShot(crashAudio);
-        crashParticles.Play();
+        crashAudio.Play("Crash SFX");
+        crashParticles.Play();        
         Invoke("ReloadLevel", levelDeathDelay);
+
+        // if (crashAudio == null)
+        // {
+        // Invoke("ReloadLevel", levelDeathDelay);
+        // } else     
+        // {
+
+        // }
+
+
+        
         // ReloadLevel();
     }
 
