@@ -66,3 +66,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Main Engine SFX
+    clip: {fileID: 8300000, guid: 0a685b08e96be1b42aeca939e83f3f00, type: 3}
+    mixerGroup: {fileID: 24300002, guid: 8b3941e4d9694224494188299e685cb8, type: 2}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

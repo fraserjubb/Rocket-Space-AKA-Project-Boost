@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rotationSpeed = 150f;
 
-    [SerializeField] AudioClip mainEngine;
+    public AudioManager mainEngineAudio;
 
     [SerializeField] ParticleSystem mainEngineParticles;
     [SerializeField] ParticleSystem leftEngineParticles;
@@ -19,15 +19,17 @@ public class Movement : MonoBehaviour
 
     // CACHE - e.g. references in the script for readability or speed
     Rigidbody rb;
-    AudioSource audioSource;
+    // AudioSource audioSource;
     // Physics physics;
     // STATE - private instance (member) variables e.g. "bool isAlive"
 
 //START METHOD
     void Start()
     {
+        
+        // audioSource = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        mainEngineAudio = FindObjectOfType<AudioManager>();
         // physics = GetComponent<Physics>();
         // audioSource.Play(0);
         // Debug.Log("started");
@@ -59,7 +61,7 @@ public class Movement : MonoBehaviour
 
     void StopThrusting()
     {
-        audioSource.Stop();
+        mainEngineAudio.Stop("Main Engine SFX");
         mainEngineParticles.Stop();
     }
 
@@ -69,9 +71,9 @@ public class Movement : MonoBehaviour
         // rb.AddRelativeForce(0, mainThrust *Time.deltaTime, 0);
         // Alternative code:
         rb.AddRelativeForce(Vector3.up * mainThrust * Time.deltaTime);
-        if (!audioSource.isPlaying && !mainEngineParticles.isPlaying) // if audio is not already playing then
+        if (!mainEngineParticles.isPlaying) // if audio is not already playing then
         {
-            audioSource.PlayOneShot(mainEngine);
+            mainEngineAudio.Play("Main Engine SFX");
             mainEngineParticles.Play();
         }
     }

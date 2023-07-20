@@ -11,6 +11,8 @@ public class CollisionHandler : MonoBehaviour
 
     private AudioManager crashAudio;
     private AudioManager levelCompleteAudio;
+    public AudioManager mainEngineAudio;
+
 
     [SerializeField] ParticleSystem crashParticles;
     [SerializeField] ParticleSystem levelCompleteParticles;
@@ -35,6 +37,7 @@ public class CollisionHandler : MonoBehaviour
         rocketMovement = GetComponent<Movement>();
         crashAudio = FindObjectOfType<AudioManager>();
         levelCompleteAudio = FindObjectOfType<AudioManager>();
+        mainEngineAudio = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -83,7 +86,7 @@ public class CollisionHandler : MonoBehaviour
         isTransitioning = true;
         rocketMovement.enabled = false;
         playerHasDied = true;
-        audioSource.Stop();
+        mainEngineAudio.Stop("Main Engine SFX");
         crashAudio.Play("Crash SFX");
         crashParticles.Play();        
         Invoke("ReloadLevel", levelDeathDelay);
@@ -107,7 +110,7 @@ public class CollisionHandler : MonoBehaviour
         Debug.Log($"{scene} Complete");
         rocketMovement.enabled = false;
         isTransitioning = true;
-        audioSource.Stop();        
+        mainEngineAudio.Stop("Main Engine SFX");
         levelCompleteAudio.Play("Level Complete SFX");
         levelCompleteParticles.Play();        
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
