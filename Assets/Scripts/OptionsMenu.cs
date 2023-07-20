@@ -18,7 +18,13 @@ public class OptionsMenu : MonoBehaviour
 
     private void Start() 
     {
-        LoadValues();
+        if (PlayerPrefs.HasKey("VolumeValue"))
+        {
+            LoadValues();
+        } else
+        {    
+            volumeSlider.value = 0.4f;
+        }
     }
 
 

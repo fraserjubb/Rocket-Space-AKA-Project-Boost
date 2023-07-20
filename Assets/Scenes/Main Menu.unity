@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.7
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3054,7 +3054,7 @@ PrefabInstance:
       objectReference: {fileID: 24300002, guid: 8b3941e4d9694224494188299e685cb8, type: 2}
     - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
       propertyPath: sounds.Array.data[0].volume
-      value: 0.6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 923930639965808183, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
       propertyPath: m_Name
