@@ -14,6 +14,6 @@ public class CurrentLevelUI : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene();
         finalScene = SceneManager.sceneCountInBuildSettings;
-        currentLevelTextUI.text = ($"Level: {currentScene.buildIndex} / {finalScene - 2}");
+        currentLevelTextUI.text = ($"LEVEL: 0{currentScene.buildIndex} of 0{finalScene - 2}");
     }
 }
