@@ -43,10 +43,11 @@ public class AudioManager : MonoBehaviour
     }
 
     // // If wanting music paused on pause menu.
-    // void Update()
-    // {
-    //     PauseAndResume("Theme");
-    // }
+    void Update()
+    {
+        PauseAndResume("Crash SFX");
+        PauseAndResume("Level Complete SFX");
+    }
 
     public void Play(string name)
     {
@@ -77,7 +78,8 @@ public class AudioManager : MonoBehaviour
         {
             Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
             return;
-        } else if(PauseMenu.gameIsPaused == true)
+        }
+        if (PauseMenu.gameIsPaused == true)
         {s.source.Pause();}
         else if(PauseMenu.gameIsPaused == false)
         {s.source.UnPause();}
