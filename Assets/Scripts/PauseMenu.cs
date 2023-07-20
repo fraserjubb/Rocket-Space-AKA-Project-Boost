@@ -12,11 +12,10 @@ public class PauseMenu : MonoBehaviour
     public GameObject confirmationMenuUI;
     public GameObject currentLevelBox;
 
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && DialogueManager.initialTutorialIsRunning == false && DialogueManager.gameplayTutorialIsRunning == false && onSecondaryPauseMenu == false)
+        if (Input.GetKeyDown(KeyCode.P) && DialogueManager.initialTutorialIsRunning == false && onSecondaryPauseMenu == false)
         {
             if (gameIsPaused)
             {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -9,6 +10,8 @@ public class DialogueManager : MonoBehaviour
     // public Text nameText;
     public TextMeshProUGUI dialogueText;
     public GameObject initialTutorialText;
+    public GameObject gameplayTutorialText;
+
 
     public static bool initialTutorialIsRunning;
     public static bool gameplayTutorialIsRunning;
@@ -48,13 +51,28 @@ public class DialogueManager : MonoBehaviour
         BoostingTutorial();
         RotateRightTutorial();
         RotateLeftTutorial();
+        PausingTutorial();
     }
 
 
 // METHODS:
+    void PausingTutorial()
+    {
+            if (PauseMenu.gameIsPaused)
+        {
+            gameplayTutorialText.SetActive(false);
+        } else if (PauseMenu.gameIsPaused == false)
+        {
+            gameplayTutorialText.SetActive(true);
+        }
+
+    }
+    
+    
+    
     void BoostingTutorial()
     {
-        if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false)
+        if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false && PauseMenu.gameIsPaused == false)
         {
             Time.timeScale = 1f;
             spaceBarText.SetActive(false);
@@ -65,7 +83,7 @@ public class DialogueManager : MonoBehaviour
 
     void RotateRightTutorial()
     {
-        if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true)
+        if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true && PauseMenu.gameIsPaused == false)
         {
             rotateRightText.SetActive(false);
             dButtonPressed = true;
@@ -75,7 +93,10 @@ public class DialogueManager : MonoBehaviour
 
     void RotateLeftTutorial()
     {
-        if (Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true)
+        int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentLevelIndex + 1;
+        
+        if ((Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true && PauseMenu.gameIsPaused == false) || nextSceneIndex > 2)
         {
             Debug.Log("I am being reached");
             aButtonPressed = true;
