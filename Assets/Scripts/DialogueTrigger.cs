@@ -9,7 +9,8 @@ public class DialogueTrigger : MonoBehaviour
 
     void Start()
     {
-        Invoke("TriggerDialogue", delayTime);
+        TriggerDialogue();
+        // Invoke("TriggerDialogue", delayTime);
     }
 
     public void TriggerDialogue()
