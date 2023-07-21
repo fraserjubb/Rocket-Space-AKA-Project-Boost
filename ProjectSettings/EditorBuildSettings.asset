@@ -6,33 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/PlayTesting.unity
+    path: Assets/Sandbox/PlayTesting.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/Other/Main Menu.unity
     guid: 89264e8369c3cf040928e9ae1c430f68
   - enabled: 1
-    path: Assets/Scenes/OverTheHill.unity
+    path: Assets/Scenes/Levels/OverTheHill.unity
     guid: 5ae26408b449536428a908405b03db49
   - enabled: 1
-    path: Assets/Scenes/Under.unity
+    path: Assets/Scenes/Levels/Under.unity
     guid: c5ca224b655503c4a83ad472b49c987d
   - enabled: 1
-    path: Assets/Scenes/Narrow Passages.unity
+    path: Assets/Scenes/Levels/Narrow Passages.unity
     guid: 895cbc89ddc465b4f95a3dcc179feacd
   - enabled: 1
-    path: Assets/Scenes/Symmetrical.unity
+    path: Assets/Scenes/Levels/Symmetrical.unity
     guid: c915a48db2f8b9747ab09bee66ead2a6
   - enabled: 1
-    path: Assets/Scenes/3 Cubes.unity
+    path: Assets/Scenes/Levels/3 Cubes.unity
     guid: 4ad0a8d0bdf473d4bbc6af91721e2afc
   - enabled: 1
-    path: Assets/Scenes/Complex.unity
+    path: Assets/Scenes/Levels/Complex.unity
     guid: dd90fe4449ac87a47a3a0ea0e77c9d22
   - enabled: 1
-    path: Assets/Scenes/Diagonals.unity
+    path: Assets/Scenes/Levels/Diagonals.unity
     guid: c7c90faf153bd7b46a09b1867b572152
   - enabled: 1
-    path: Assets/Scenes/Game Complete Screen.unity
+    path: Assets/Scenes/Other/Game Complete Screen.unity
     guid: 42bd68fbbd07f5542b51ab388919425a
   m_configObjects: {}
