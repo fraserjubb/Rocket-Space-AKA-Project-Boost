@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
+    public GameObject currentLevelBox;
+
     public static bool gameIsPaused = false;
     public static bool onSecondaryPauseMenu = false;
 
-    public GameObject pauseMenuUI; // Allows for game object to be applied in unity (similar to Serialize Field)
-    public GameObject confirmationMenuUI;
-    public GameObject currentLevelBox;
 
     // Update is called once per frame
     void Update()
@@ -46,9 +46,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Confirmation()
     {
-        pauseMenuUI.SetActive(false);
-        confirmationMenuUI.SetActive(true);
-        onSecondaryPauseMenu = true;
+        onSecondaryPauseMenu = true; // Needed to allow pause button to function properly when P is pressed
     }
 
     public void Options()
@@ -58,15 +56,13 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToPause()
     {
-        confirmationMenuUI.SetActive(false);        
-        pauseMenuUI.SetActive(true);
         onSecondaryPauseMenu = false;
     }
 
     public void ReturnToMenu()
     {
         Resume();
-        currentLevelBox.SetActive(false);
         SceneManager.LoadScene("Main Menu");
     }
+    
 }
