@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script controls moving objects
 public class Oscillator : MonoBehaviour
 {
     Vector3 startingPosition; // This will never change therfore no SerializeField required
     [SerializeField] Vector3 movementVector;
-    // [SerializeField] [Range(0,1)] - if wanting a bar to edit in unity ranging between two numbers
+    // [SerializeField] [Range(0,1)] //--- if wanting a bar to edit in unity ranging between two numbers
     float movementFactor;
     [SerializeField] float period = 2f;
 
