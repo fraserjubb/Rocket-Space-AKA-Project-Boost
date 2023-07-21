@@ -6,7 +6,7 @@ using TMPro;
 
 public class CurrentLevelUI : MonoBehaviour
 {
-    public TMP_Text currentLevelTextUI;
+    public TMP_Text currentLevelTextUI; //This allows for directing editing of UI text in-game
     Scene currentScene;
     int finalScene;
 
