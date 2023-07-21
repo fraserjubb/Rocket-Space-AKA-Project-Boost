@@ -36,7 +36,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Theme");
+        Play("Theme"); // String must match the name given in the Inspector
     }
 
     void Update()
@@ -47,10 +47,10 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string soundName)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        Sound s = Array.Find(sounds, sound => sound.name == soundName); // Finds the name of the song in the list
         if (s == null)
         {
-            Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
+            SongNotFound(soundName);
             return;
         }
         s.source.Play();
@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
-            Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
+            SongNotFound(soundName);
             return;
         }
         s.source.Stop();
@@ -73,7 +73,7 @@ public class AudioManager : MonoBehaviour
         Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
-            Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
+            SongNotFound(soundName);
             return;
         }
         if (PauseMenu.gameIsPaused == true)
@@ -81,4 +81,10 @@ public class AudioManager : MonoBehaviour
         else if(PauseMenu.gameIsPaused == false)
         {s.source.UnPause();}
     }
+
+    void SongNotFound(string soundName)
+    {
+        Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
+    }
+
 }
