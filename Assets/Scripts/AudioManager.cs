@@ -8,14 +8,11 @@ public class AudioManager : MonoBehaviour
     
     public static AudioManager instance;
 
-    // public AudioMixerGroup mixerGroup;
-
-
     // Start is called before the first frame update
     void Awake()
     {
         // to ensure a new audiomanager is not created in the next scene i.e. duplicates.
-        if (instance == null) // we don't have an audio manager in our scene
+        if (instance == null) // if we don't have an instance of an audio manager in our scene
             instance = this; // instance = thisObject
         else // if we already have an instance in our scene
         {
@@ -24,7 +21,7 @@ public class AudioManager : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        // links our custom inspector to AudioSource
+        // The following links our custom inspector to AudioSource:
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
@@ -42,7 +39,6 @@ public class AudioManager : MonoBehaviour
         Play("Theme");
     }
 
-    // // If wanting music paused on pause menu.
     void Update()
     {
         PauseAndResume("Crash SFX");
@@ -71,6 +67,7 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    // For pausing any specific sounds on pause menu, will resume when out of pause:
     public void PauseAndResume(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
