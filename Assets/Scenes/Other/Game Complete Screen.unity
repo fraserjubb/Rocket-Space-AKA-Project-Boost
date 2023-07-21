@@ -520,6 +520,8 @@ GameObject:
   - component: {fileID: 791669536}
   - component: {fileID: 791669535}
   - component: {fileID: 791669534}
+  - component: {fileID: 791669538}
+  - component: {fileID: 791669537}
   m_Layer: 5
   m_Name: FeedbackButton
   m_TagString: Untagged
@@ -592,9 +594,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 790392920}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
+      - m_Target: {fileID: 791669537}
+        m_TargetAssemblyTypeName: Link, Assembly-CSharp
+        m_MethodName: OpenPlayerFeedbackForm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -642,6 +644,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 791669532}
   m_CullTransparentMesh: 1
+--- !u!114 &791669537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791669532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06d398d831b5a87468e30752c38e09dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &791669538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791669532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d0fcae35b5150d43af05b1317103fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPress:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1039333017
 GameObject:
   m_ObjectHideFlags: 0
