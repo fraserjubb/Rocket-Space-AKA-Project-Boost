@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
+using UnityEngine.UI; //Allows access to sliders and other UIs
 using TMPro;
 
 public class OptionsMenu : MonoBehaviour
 {
-    [SerializeField] private Slider volumeSlider = null;
+    [SerializeField] private Slider volumeSlider = null; // Allows access to the slider
     
+    [SerializeField] private TextMeshProUGUI volumeTextUI = null; // The number value next to the slider in the UI
     
     [SerializeField] private AudioMixer Mixer;
-    // [SerializeField] private AudioSource AudioSource;
-    [SerializeField] private TextMeshProUGUI volumeTextUI = null;
-
     [SerializeField] private AudioMixMode MixMode;
 
     private void Start() 
@@ -23,15 +21,14 @@ public class OptionsMenu : MonoBehaviour
             LoadValues();
         } else
         {    
-            volumeSlider.value = 0.75f;
+            volumeSlider.value = 0.75f; // Value of the slider
         }
     }
 
 
-    public void OnChangeSlider(float volume)
+    public void OnChangeSlider(float volume) // When we move the slider we pass in a value
     {
-        volumeTextUI.text = volume.ToString("0.0");
-        // volumeTextUI.SetText($"{Value.ToString("N4")}"); // This will show the float value up to four decimal places
+        volumeTextUI.text = volume.ToString("N1"); // Accessing the text component and it's equal to the paramanter which is converted to a string as can't put float in textbox. M1 = Shows the float with 1 decimal place
 
         switch (MixMode)
         {
@@ -52,12 +49,12 @@ public class OptionsMenu : MonoBehaviour
     public void SaveVolumeChanges()
     {
         float volumeValue = volumeSlider.value;
-        PlayerPrefs.SetFloat("VolumeValue", volumeValue);
+        PlayerPrefs.SetFloat("VolumeValue", volumeValue); // PlayerPrefs.SetFloat(string key, float value);
     }
 
     void LoadValues()
     {
-        float volumeValue = PlayerPrefs.GetFloat("VolumeValue");
+        float volumeValue = PlayerPrefs.GetFloat("VolumeValue"); // PlayerPrefs.GetFloat(string key)
         volumeSlider.value = volumeValue;
         // AudioListener.volume = volumeValue; // Only use this line if want ALL audio linked to this
     }
