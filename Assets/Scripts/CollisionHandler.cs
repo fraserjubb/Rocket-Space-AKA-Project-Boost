@@ -14,7 +14,7 @@ public class CollisionHandler : MonoBehaviour
 
     private AudioManager crashAudio;
     private AudioManager levelCompleteAudio;
-    public AudioManager mainEngineAudio;
+    private AudioManager mainEngineAudio;
 
 
     // CACHE - e.g. references in the script for readability or speed
