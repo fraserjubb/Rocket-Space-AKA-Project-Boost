@@ -5,8 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    // public string name;
-
-    [TextArea(3,10)]
-    public string[] sentences;
+    [TextArea(3,10)] //Default size the textbox in the inspector will be
+    public string[] sentences; // Allows for a custom text-string list to be created in the inspector that can be added in size
 }

@@ -7,7 +7,6 @@ using TMPro;
 public class DialogueManager : MonoBehaviour
 {
     // INITIAL TUTORIAL VARIABLES, BOOLEANS & COLLECTIONS:
-    // public Text nameText;
     public TextMeshProUGUI dialogueText;
     public GameObject initialTutorialText;
     public GameObject gameplayTutorialText;
@@ -43,7 +42,7 @@ public class DialogueManager : MonoBehaviour
         aButtonPressed = false;
 
 
-        sentences = new Queue<string>();
+        sentences = new Queue<string>(); //inititate the Queue
     }
 
     void Update()
@@ -51,25 +50,11 @@ public class DialogueManager : MonoBehaviour
         BoostingTutorial();
         RotateRightTutorial();
         RotateLeftTutorial();
-        PausingTutorial();
+        EnablePausingInTutorial();
     }
 
 
-// METHODS:
-    void PausingTutorial()
-    {
-            if (PauseMenu.gameIsPaused)
-        {
-            gameplayTutorialText.SetActive(false);
-        } else if (PauseMenu.gameIsPaused == false)
-        {
-            gameplayTutorialText.SetActive(true);
-        }
-
-    }
-    
-    
-    
+// METHODS:    
     void BoostingTutorial()
     {
         if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false && PauseMenu.gameIsPaused == false)
@@ -96,29 +81,35 @@ public class DialogueManager : MonoBehaviour
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentLevelIndex + 1;
         
-        if ((Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true && PauseMenu.gameIsPaused == false) || nextSceneIndex > 2)
+        if ((Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true && PauseMenu.gameIsPaused == false) || nextSceneIndex > 2) // If player manages to complete level 1 without pressing A, the tutorial will still end and not cause game to break.
         {
-            Debug.Log("I am being reached");
             aButtonPressed = true;
             rotateLeftText.SetActive(false);
             gameplayTutorialIsRunning = false;
         }
     }
 
-
-    public void StartDialogue (Dialogue dialogue)
+    void EnablePausingInTutorial()
     {
-        // Debug.Log("Starting conversation with" + dialogue.name);
+        if (PauseMenu.gameIsPaused)
+        {
+            gameplayTutorialText.SetActive(false);
+        } else if (PauseMenu.gameIsPaused == false)
+        {
+            gameplayTutorialText.SetActive(true);
+        }
+    }
 
-        // nameText.text = dialogue.name;
 
-        sentences.Clear();
+    public void StartDialogue (Dialogue dialogue) // variable with same name in DialogueTrigger.cs
+    {
+        sentences.Clear(); // Ensure that any previous dialigue is cleared from the Queue
 
         Time.timeScale = 0f;
 
         foreach (string sentence in dialogue.sentences)
         {
-            sentences.Enqueue(sentence);
+            sentences.Enqueue(sentence); //Add an object to end of the Queue - this will add all sentences in order to the Queue
         }
 
         DisplayNextSentence();
@@ -126,25 +117,24 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        if (sentences.Count == 0) //no dialogue left so time to end the conversation
+        if (sentences.Count == 0) // if no dialogue left, time to end the conversation
         {
             EndDialogue();
             return;
-        } else if (Input.GetKey(KeyCode.Space))
+        } else if (Input.GetKey(KeyCode.Space)) // Space Bar will do nothing whilst initial tutorial is playing.
         {
-            return; // Space Bar will do nothing whilst initial tutorial is playing.
+            return; // DO NOTHING
         }
-        
-        string sentence = sentences.Dequeue();
+
+        string sentence = sentences.Dequeue(); // Remove and return the object at the beginning of the Queue - this will bring the next sentence onto screen.
         dialogueText.text = sentence;
     }
 
     void EndDialogue()
     {
-        if (Input.GetKey(KeyCode.Space)){return;}
+        if (Input.GetKey(KeyCode.Space)){return;} // Space Bar will continue to do nothing on final section of initial tutorial
         initialTutorialText.SetActive(false);
-        initialTutorialIsRunning = false;
-        spaceBarText.SetActive(true);        
-        Debug.Log("End of conversation");
+        initialTutorialIsRunning = false; //initial tutorial is now over
+        spaceBarText.SetActive(true); // Allows for gameplay tutorial gameObject to display       
     }
 }
