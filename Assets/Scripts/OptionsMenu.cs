@@ -21,7 +21,7 @@ public class OptionsMenu : MonoBehaviour
             LoadValues();
         } else
         {    
-            volumeSlider.value = 0.75f; // Value of the slider
+            volumeSlider.value = 0.5f; // Value of the slider
         }
     }
 
