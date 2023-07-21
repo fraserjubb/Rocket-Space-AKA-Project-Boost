@@ -45,35 +45,35 @@ public class AudioManager : MonoBehaviour
         PauseAndResume("Level Complete SFX");
     }
 
-    public void Play(string name)
+    public void Play(string soundName)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
-            Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
+            Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
             return;
         }
         s.source.Play();
     }
 
-    public void Stop(string name)
+    public void Stop(string soundName)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
-            Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
+            Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
             return;
         }
         s.source.Stop();
     }
 
     // For pausing any specific sounds on pause menu, will resume when out of pause:
-    public void PauseAndResume(string name)
+    public void PauseAndResume(string soundName)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
+        Sound s = Array.Find(sounds, sound => sound.name == soundName);
         if (s == null)
         {
-            Debug.LogWarning($"Sound '{name}' not found. Check argument string name matches in script and Unity.");
+            Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
             return;
         }
         if (PauseMenu.gameIsPaused == true)
