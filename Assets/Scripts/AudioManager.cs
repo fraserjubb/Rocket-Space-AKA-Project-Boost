@@ -1,14 +1,14 @@
 using UnityEngine.Audio;
-using System;
+using System; // Allows for using Array.Find
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public Sound[] sounds;
+    public Sound[] sounds; // Makes a list/array using the Sound Class
     
     public static AudioManager instance;
 
-    // Start is called before the first frame update
+    // Awake is called when the game is booted up so before it "starts"
     void Awake()
     {
         // to ensure a new audiomanager is not created in the next scene i.e. duplicates.
@@ -17,15 +17,15 @@ public class AudioManager : MonoBehaviour
         else // if we already have an instance in our scene
         {
             Destroy(gameObject); // destroy this object
-            return; // makes sure no more code is called before we call the object. 
+            return; // makes sure no more code is called before we destroy the object. 
         }
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject); // Prevents audio manager from being destroyed between scenes.
 
         // The following links our custom inspector to AudioSource:
-        foreach (Sound s in sounds)
+        foreach (Sound s in sounds) // each sound in our sound array
         {
-            s.source = gameObject.AddComponent<AudioSource>();
-            s.source.outputAudioMixerGroup = s.mixerGroup;
+            s.source = gameObject.AddComponent<AudioSource>(); //Adds an audiosource component which is stored in the source variable (found in Sound)
+            s.source.outputAudioMixerGroup = s.mixerGroup; 
             s.source.clip = s.clip;
 
             s.source.volume = s.volume;
@@ -58,7 +58,7 @@ public class AudioManager : MonoBehaviour
 
     public void Stop(string soundName)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == soundName);
+        Sound s = Array.Find(sounds, sound => sound.name == soundName); // Search the sound array and find the sound where sound.name == soundName variable
         if (s == null)
         {
             SongNotFound(soundName);
@@ -84,7 +84,7 @@ public class AudioManager : MonoBehaviour
 
     void SongNotFound(string soundName)
     {
-        Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity.");
+        Debug.LogWarning($"Sound '{soundName}' not found. Check argument string name matches in script and Unity."); // LOGWARNING - Own warning message so that the game doesn't completely break
     }
 
 }
