@@ -9,17 +9,18 @@ public class CollisionHandler : MonoBehaviour
     [SerializeField] float levelDeathDelay = 10f;
     [SerializeField] float levelLoadDelay = 10f;
 
+    [SerializeField] ParticleSystem crashParticles;
+    [SerializeField] ParticleSystem levelCompleteParticles;
+
     private AudioManager crashAudio;
     private AudioManager levelCompleteAudio;
     public AudioManager mainEngineAudio;
 
 
-    [SerializeField] ParticleSystem crashParticles;
-    [SerializeField] ParticleSystem levelCompleteParticles;
-
     // CACHE - e.g. references in the script for readability or speed
     AudioSource audioSource;
     Movement rocketMovement;
+
 
     // STATE - private instance (member) variables e.g. "bool isAlive"
     bool isTransitioning = false;
@@ -27,13 +28,11 @@ public class CollisionHandler : MonoBehaviour
 
     public static bool playerHasDied = false;
 
-    // bool ToggleChange;
 
 //START METHOD
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        // ToggleChange = true;
         rocketMovement = GetComponent<Movement>();
         crashAudio = FindObjectOfType<AudioManager>();
         levelCompleteAudio = FindObjectOfType<AudioManager>();
@@ -45,6 +44,7 @@ public class CollisionHandler : MonoBehaviour
         RespondToDebugKeys();
     }
 
+// CHEAT CODES: Make sure to COMMENT OUT BEFORE FINAL BUILD!!!
     void RespondToDebugKeys()
     {
         if (Input.GetKeyDown(KeyCode.L) && PauseMenu.gameIsPaused == false)
@@ -57,25 +57,22 @@ public class CollisionHandler : MonoBehaviour
         }
     }
     
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision objectBeingHit)
     {
-        if (isTransitioning || collisionDisabled) {return;} // || Means or
-        // switch (variableToCompare)
-        switch (other.gameObject.tag)
+        if (isTransitioning || collisionDisabled) {return;} // If already transitioning between variable switches OR collisions have been turned off... It will skip code below. 
+        
+        switch (objectBeingHit.gameObject.tag) // switch (variableToCompare)
         {
-            // case valueA:
-            // ActionToTake();
-            // break;
+            case "Friendly": // LaunchPad/Player Spawning Point --- case ValueA:
+                // DO NOTHING --- ActionToTake();
+                // Debug.Log("This object is friendly"); --- break;
+                break;            
 
-            case "Finish":
+            case "Finish": // LandingPad/Level Complete
                 LevelComplete();
                 break;
 
-            case "Friendly":
-                Debug.Log("This object is friendly");
-                break;
-
-            default:
+            default: //Anything else without a tag will destroy player
                 StartCrashSequence();
                 break;
         }
@@ -90,18 +87,6 @@ public class CollisionHandler : MonoBehaviour
         crashAudio.Play("Crash SFX");
         crashParticles.Play();        
         Invoke("ReloadLevel", levelDeathDelay);
-
-        // if (crashAudio == null)
-        // {
-        // Invoke("ReloadLevel", levelDeathDelay);
-        // } else     
-        // {
-
-        // }
-
-
-        
-        // ReloadLevel();
     }
 
     void LevelComplete()
@@ -117,52 +102,13 @@ public class CollisionHandler : MonoBehaviour
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
-
-    // void StartCrashSequence()
-    // {
-    //     // To do: Add particle effect upon crash
-    //     Debug.Log("Sorry you've blown up");
-    //     rocketMovement.enabled = false;
-    //     if (isTransitioning == false)
-    //     {
-    //         audioSource.Stop();
-    //     }
-    //     // GetComponent<AudioSource>().enabled = false;
-    //     if (!audioSource.isPlaying && isTransitioning == false)
-    //     {
-    //         audioSource.PlayOneShot(crashAudio);
-    //         // ToggleChange = false;
-    //         isTransitioning = true;
-    //     }
-    //     Invoke("ReloadLevel", levelDeathDelay);
-    //     // ReloadLevel();
-    // }
-    
-    // void LevelComplete()
-    // {
-    //     // To do: Add particle effect upon crash
-    //     string scene = SceneManager.GetActiveScene().name; // This line adds string interpolation to say which level is complete in the console
-    //     Debug.Log($"{scene} Complete");
-    //     rocketMovement.enabled = false;
-    //     if (isTransitioning == false)
-    //     {
-    //         audioSource.Stop();
-    //     }
-    //     if (!audioSource.isPlaying && isTransitioning == false)
-    //     {
-    //         audioSource.PlayOneShot(levelCompleteAudio);
-    //         isTransitioning = true;
-    //     }        
-    //         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-    //         Invoke("LoadNextLevel", levelLoadDelay);
-    // }
     void LoadNextLevel()
     {
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentLevelIndex + 1;
         if (nextSceneIndex == SceneManager.sceneCountInBuildSettings)
         {
-            Debug.Log("GAME COMPLETE");
+            // Debug.Log("GAME COMPLETE");
             nextSceneIndex = 1;
         }
         SceneManager.LoadScene(nextSceneIndex);
@@ -171,9 +117,7 @@ public class CollisionHandler : MonoBehaviour
     void ReloadLevel()
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex); // return the number that the scene currently is playing
-        // SceneManager.LoadScene("Sandbox");
-        // SceneManager.LoadScene(0);
+        SceneManager.LoadScene(currentSceneIndex); // return the scene/level number that the player is currently playing
     }
 
 }
