@@ -8,17 +8,17 @@ public class Link : MonoBehaviour
 	public void OpenPlayerFeedbackForm()
 	{
 		#if !UNITY_EDITOR
-		openWindow("https://docs.google.com/forms/d/e/1FAIpQLScwQDBHrVtTYs1TSRmxCMhIDjP8cz9FRLt8WkJx_JpeYVQ3Vw/viewform?usp=sf_link");
+		openWindow("https://docs.google.com/forms/d/e/1FAIpQLSeGHOj8CQYqOfZNHRX6wHB-0iAYdJbJx-KMWYT98dACsIPZcg/viewform?usp=sf_link");
 		#endif
 		Debug.Log("Player Feedback Form has been opened");
 	}
 
-	public void OpenInstagram()
+	public void OpenLinkTree()
 	{
 		#if !UNITY_EDITOR
-		openWindow("https://www.instagram.com/thejubbzone/");
+		openWindow("https://linktr.ee/TheJubbZone");
 		#endif
-		Debug.Log("The Jubb Zone Insta has been opened");
+		Debug.Log("The Jubb Zone linktree has been opened");
 	}
 
 	[DllImport("__Internal")]
