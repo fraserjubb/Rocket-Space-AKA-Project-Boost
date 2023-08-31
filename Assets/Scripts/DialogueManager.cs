@@ -10,6 +10,7 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public GameObject initialTutorialText;
     public GameObject gameplayTutorialText;
+    public GameObject gameplayTutorialBackgroundUI;
 
 
     public static bool initialTutorialIsRunning;
@@ -33,6 +34,7 @@ public class DialogueManager : MonoBehaviour
         spaceBarText.SetActive(false);
         rotateRightText.SetActive(false);
         rotateLeftText.SetActive(false);
+        gameplayTutorialBackgroundUI.SetActive(false);
 
         initialTutorialIsRunning = true;
         gameplayTutorialIsRunning = true;
@@ -85,6 +87,7 @@ public class DialogueManager : MonoBehaviour
         {
             aButtonPressed = true;
             rotateLeftText.SetActive(false);
+            gameplayTutorialBackgroundUI.SetActive(false);
             gameplayTutorialIsRunning = false;
         }
     }
@@ -135,6 +138,7 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Space)){return;} // Space Bar will continue to do nothing on final section of initial tutorial
         initialTutorialText.SetActive(false);
         initialTutorialIsRunning = false; //initial tutorial is now over
-        spaceBarText.SetActive(true); // Allows for gameplay tutorial gameObject to display       
+        spaceBarText.SetActive(true); // Allows for gameplay tutorial gameObject to display
+        gameplayTutorialBackgroundUI.SetActive(true);       
     }
 }
