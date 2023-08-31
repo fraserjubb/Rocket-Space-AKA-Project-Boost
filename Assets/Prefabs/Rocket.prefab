@@ -478,7 +478,7 @@ Transform:
   - {fileID: 8404119777706682510}
   - {fileID: 6696586082910888515}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7795841630604582463
 MeshFilter:
@@ -502,7 +502,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainThrust: 1000
   rotationSpeed: 150
-  mainEngine: {fileID: 8300000, guid: 0a685b08e96be1b42aeca939e83f3f00, type: 3}
   mainEngineParticles: {fileID: 2441764241106843890}
   leftEngineParticles: {fileID: 1360565629031702314}
   rightEngineParticles: {fileID: 660857385109238110}
@@ -641,10 +640,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6fc028ccd8f0fc4e984ff965ba3482d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelDeathDelay: 3
+  levelDeathDelay: 2
   levelLoadDelay: 3
-  crashAudio: {fileID: 8300000, guid: 763ef23a61625e24187436bcff1c00df, type: 3}
-  levelCompleteAudio: {fileID: 8300000, guid: 8fdeae4ad9839f147a7a6423e3fdfadd, type: 3}
   crashParticles: {fileID: 4646960211905435300}
   levelCompleteParticles: {fileID: 3287787721671103807}
 --- !u!65 &4086571605548405720
