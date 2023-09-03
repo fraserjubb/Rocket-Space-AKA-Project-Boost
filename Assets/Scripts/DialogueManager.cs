@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
 // METHODS:    
     void BoostingTutorial()
     {
-        if (Input.GetKey(KeyCode.Space) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false && PauseMenu.gameIsPaused == false)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && spaceBarPressed == false && DialogueManager.initialTutorialIsRunning == false && PauseMenu.gameIsPaused == false)
         {
             Time.timeScale = 1f;
             spaceBarText.SetActive(false);
@@ -70,7 +70,7 @@ public class DialogueManager : MonoBehaviour
 
     void RotateRightTutorial()
     {
-        if (Input.GetKey(KeyCode.D) && dButtonPressed == false && spaceBarPressed == true && PauseMenu.gameIsPaused == false)
+        if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && dButtonPressed == false && spaceBarPressed == true && PauseMenu.gameIsPaused == false)
         {
             rotateRightText.SetActive(false);
             dButtonPressed = true;
@@ -83,7 +83,7 @@ public class DialogueManager : MonoBehaviour
         int currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentLevelIndex + 1;
         
-        if ((Input.GetKey(KeyCode.A) && aButtonPressed == false && dButtonPressed == true && PauseMenu.gameIsPaused == false) || nextSceneIndex > 2) // If player manages to complete level 1 without pressing A, the tutorial will still end and not cause game to break.
+        if (((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && aButtonPressed == false && dButtonPressed == true && PauseMenu.gameIsPaused == false) || nextSceneIndex > 2) // If player manages to complete level 1 without pressing A, the tutorial will still end and not cause game to break.
         {
             aButtonPressed = true;
             rotateLeftText.SetActive(false);

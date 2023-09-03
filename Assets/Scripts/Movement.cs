@@ -41,7 +41,7 @@ public class Movement : MonoBehaviour
 // PRIVATE METHODS
     void ProcessThrust()
     {
-        if (Input.GetKey(KeyCode.Space) && PauseMenu.gameIsPaused == false && DialogueManager.initialTutorialIsRunning == false)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && PauseMenu.gameIsPaused == false && DialogueManager.initialTutorialIsRunning == false)
         {
             StartThrusting();
         } 
@@ -69,11 +69,11 @@ public class Movement : MonoBehaviour
 
     void ProcessRotation()
     {
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             RotatingLeft();
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             RotatingRight();
         }
