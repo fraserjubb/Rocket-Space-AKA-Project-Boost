@@ -89,6 +89,8 @@ AudioMixerController:
   m_ExposedParameters:
   - guid: acaa8c2ee08d5e34ab239e5976d3b4f3
     name: Crash SFX
+  - guid: 8c31cb2258639e74eb29a09946128f72
+    name: Level Complete SFX
   - guid: 150e9cd1680dbcd4a9bee14c0b849167
     name: Main Engine SFX
   - guid: 7b5be55b39092ba4dbfaae2cde41e394
@@ -151,9 +153,9 @@ AudioMixerSnapshotController:
   m_SnapshotID: d5d6aaf6331de7b41ad18564ff405098
   m_FloatValues:
     150e9cd1680dbcd4a9bee14c0b849167: 5.02454
-    8c31cb2258639e74eb29a09946128f72: -3.8468575
+    8c31cb2258639e74eb29a09946128f72: -3.5090396
     47c752558070a9c428bb2756fabe0415: -0.08374829
-    7b5be55b39092ba4dbfaae2cde41e394: 2.4583216
+    7b5be55b39092ba4dbfaae2cde41e394: -66.96461
     cc74e21dee342f34c9f34927cbf634c3: 2.1715524
     acaa8c2ee08d5e34ab239e5976d3b4f3: -2.018035
   m_TransitionOverrides: {}
