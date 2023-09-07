@@ -8,8 +8,10 @@ using TMPro;
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField] private Slider musicSlider = null; // Allows access to the slider
+    [SerializeField] private Slider SFXSlider = null; // Allows access to the slider
     
-    [SerializeField] private TextMeshProUGUI volumeTextUI = null; // The number value next to the slider in the UI
+    [SerializeField] private TextMeshProUGUI musicTextUI = null; // The number value next to the slider in the UI
+    [SerializeField] private TextMeshProUGUI SFXTextUI = null; // The number value next to the slider in the UI
     
     [SerializeField] private AudioMixer MyMixer;
     // [SerializeField] private AudioMixMode MixMode;
@@ -18,10 +20,18 @@ public class OptionsMenu : MonoBehaviour
     {
         if(PlayerPrefs.HasKey("musicVolume"))
         {
-            LoadVolume();
+            LoadMusicVolume();
         } else
         {
-            musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.5f);
+            musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 1.3f);
+            // SetMusicVolume();
+        }
+        if(PlayerPrefs.HasKey("SFXVolume"))
+        {
+            LoadSFXVolume();
+        } else
+        {
+            SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 1.7f);
             // SetMusicVolume();
         }
     }
@@ -29,16 +39,32 @@ public class OptionsMenu : MonoBehaviour
     public void SetMusicVolume()
     {
         float volume = musicSlider.value;
-        volumeTextUI.text = volume.ToString("N1"); // Accessing the text component and it's equal to the paramanter which is converted to a string as can't put float in textbox. M1 = Shows the float with 1 decimal place
+        musicTextUI.text = volume.ToString("N1"); // Accessing the text component and it's equal to the paramanter which is converted to a string as can't put float in textbox. M1 = Shows the float with 1 decimal place
         MyMixer.SetFloat("Music", Mathf.Log10(volume)*20);
         PlayerPrefs.SetFloat("musicVolume", volume);
     }
 
-    private void LoadVolume()
+    public void SetSFXVolume()
+    {
+        float volume = SFXSlider.value;
+        SFXTextUI.text = volume.ToString("N1"); // Accessing the text component and it's equal to the paramanter which is converted to a string as can't put float in textbox. M1 = Shows the float with 1 decimal place
+        MyMixer.SetFloat("Main Engine SFX", Mathf.Log10(volume)*20);
+        MyMixer.SetFloat("Crash SFX", Mathf.Log10(volume)*20);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
+    }
+
+    private void LoadMusicVolume()
     {
         musicSlider.value = PlayerPrefs.GetFloat("musicVolume");
 
         SetMusicVolume();
+    }
+
+    private void LoadSFXVolume()
+    {
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+
+        SetSFXVolume();
     }
 
 //     private void Start() 
