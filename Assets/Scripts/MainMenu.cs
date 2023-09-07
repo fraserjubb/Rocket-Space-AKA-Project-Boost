@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 //NOTE: This class is currently used on both the Main Menu & Game Complete scenes.
 public class MainMenu : MonoBehaviour
 {
+    private int sceneToContinue;
+
     public void PlayGame() // When play button is pressed on the main menu
     {
         SceneManager.LoadScene(1); // Will load specified scene
@@ -15,6 +17,16 @@ public class MainMenu : MonoBehaviour
     // {
     //     // Currently controlled through Unity inspector
     // }
+
+    public void ContinueGame()
+    {
+        sceneToContinue = PlayerPrefs.GetInt("SavedScene");
+
+        if (sceneToContinue!=0)
+            SceneManager.LoadScene(sceneToContinue);
+        else
+            SceneManager.LoadScene(1);
+    }
 
     public void QuitGame() // When quit button in pressed on the main menu
     {
