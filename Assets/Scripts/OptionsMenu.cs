@@ -20,7 +20,9 @@ public class OptionsMenu : MonoBehaviour
         {
             LoadVolume();
         } else
-        SetMusicVolume();
+        {
+            SetMusicVolume();
+        }
     }
 
     public void SetMusicVolume()
