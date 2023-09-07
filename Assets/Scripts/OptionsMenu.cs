@@ -21,7 +21,8 @@ public class OptionsMenu : MonoBehaviour
             LoadVolume();
         } else
         {
-            SetMusicVolume();
+            musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0.5f);
+            // SetMusicVolume();
         }
     }
 
