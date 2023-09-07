@@ -1159,7 +1159,7 @@ GameObject:
   - component: {fileID: 699044121}
   - component: {fileID: 699044122}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Music Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1233,14 +1233,14 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0.5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 699044122}
         m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: OnChangeSlider
-        m_Mode: 0
+        m_MethodName: SetMusicVolume
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1261,10 +1261,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80450868007f048448eddfa306728164, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 699044121}
+  musicSlider: {fileID: 699044121}
   volumeTextUI: {fileID: 546687238}
-  Mixer: {fileID: 24100000, guid: 8b3941e4d9694224494188299e685cb8, type: 2}
-  MixMode: 0
+  MyMixer: {fileID: 24100000, guid: 8b3941e4d9694224494188299e685cb8, type: 2}
 --- !u!1 &790392918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,8 +1429,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -130}
-  m_SizeDelta: {x: 502.0217, y: 354.9095}
+  m_AnchoredPosition: {x: 20.7045, y: -196.13}
+  m_SizeDelta: {x: 575.8376, y: 615.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &994711256
 MonoBehaviour:
@@ -1732,7 +1731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ' VOLUME:'
+  m_text: 'MUSIC VOLUME:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
