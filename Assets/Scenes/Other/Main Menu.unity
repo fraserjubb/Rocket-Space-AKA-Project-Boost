@@ -634,11 +634,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1329922274}
-  - {fileID: 1501541912}
   - {fileID: 790392919}
   - {fileID: 994711255}
   - {fileID: 655891667}
   - {fileID: 1934496534}
+  - {fileID: 1501541912}
   - {fileID: 568671905}
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -663,7 +663,7 @@ GameObject:
   - component: {fileID: 568671907}
   - component: {fileID: 568671906}
   m_Layer: 5
-  m_Name: Feedback/Bug Button
+  m_Name: Report Bug/Glitch Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -720,7 +720,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 568671906}
         m_TargetAssemblyTypeName: Link, Assembly-CSharp
-        m_MethodName: OpenLinkTree
+        m_MethodName: OpenReportingBugOrGlitchForm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1302,7 +1302,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Report A Bug and/or Submit Feedback
+  m_text: 'Report A
+
+    Bug/Glitch'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
