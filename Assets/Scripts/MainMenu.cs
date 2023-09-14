@@ -6,11 +6,27 @@ using UnityEngine.SceneManagement;
 //NOTE: This class is currently used on both the Main Menu & Game Complete scenes.
 public class MainMenu : MonoBehaviour
 {
+    public GameObject confirmationText;
+    public GameObject mainMenuUI;
+
     private int sceneToContinue;
 
-    public void PlayGame() // When play button is pressed on the main menu
+    public void NewGame() // When play button is pressed on the main menu
     {
-        SceneManager.LoadScene(1); // Will load specified scene
+        sceneToContinue = PlayerPrefs.GetInt("SavedScene");
+        
+        if (sceneToContinue > 1)
+        {    
+            mainMenuUI.SetActive(false);
+            confirmationText.SetActive(true);
+        }
+        else
+            SceneManager.LoadScene(1); // Will load specified scene
+    }
+
+    public void PlayGame()
+    {
+        SceneManager.LoadScene(1);        
     }
 
     // public void Options()
