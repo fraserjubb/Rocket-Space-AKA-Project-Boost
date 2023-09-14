@@ -68,6 +68,18 @@ public class OptionsMenu : MonoBehaviour
         SetSFXVolume();
     }
 
+    public void ResetAudioDefaults()
+    {
+        PlayerPrefs.DeleteKey("SFXVolume");
+        PlayerPrefs.DeleteKey("musicVolume");
+
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 1.2f);
+        SetMusicVolume();
+
+        SFXSlider.value = PlayerPrefs.GetFloat("SFXVolume", 2.2f);
+        SetSFXVolume();
+    }
+
 //     private void Start() 
 //     {
 //         if (PlayerPrefs.HasKey("VolumeValue"))
