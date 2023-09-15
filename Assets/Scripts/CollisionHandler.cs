@@ -39,23 +39,23 @@ public class CollisionHandler : MonoBehaviour
         mainEngineAudio = FindObjectOfType<AudioManager>();
     }
 
-    void Update()
-    {
-        RespondToDebugKeys();
-    }
+    // void Update()
+    // {
+    //     // RespondToDebugKeys();
+    // }
 
 // CHEAT CODES: Make sure to COMMENT OUT BEFORE FINAL BUILD!!!
-    void RespondToDebugKeys()
-    {
-        if (Input.GetKeyDown(KeyCode.L) && PauseMenu.gameIsPaused == false)
-        {
-            LoadNextLevel();
-        }
-        else if (Input.GetKeyDown(KeyCode.C) && PauseMenu.gameIsPaused == false)
-        {
-            collisionDisabled = !collisionDisabled;
-        }
-    }
+    // void RespondToDebugKeys()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.L) && PauseMenu.gameIsPaused == false)
+    //     {
+    //         LoadNextLevel();
+    //     }
+    //     else if (Input.GetKeyDown(KeyCode.C) && PauseMenu.gameIsPaused == false)
+    //     {
+    //         collisionDisabled = !collisionDisabled;
+    //     }
+    // }
     
     void OnCollisionEnter(Collision objectBeingHit)
     {
