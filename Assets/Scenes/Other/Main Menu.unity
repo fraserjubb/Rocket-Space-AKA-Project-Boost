@@ -4962,6 +4962,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 392457060}
     m_Modifications:
+    - target: {fileID: 4168533995917023573, guid: db6e2fee5f4c2b64bbf149a846dca47d, type: 3}
+      propertyPath: m_Value
+      value: 0.54
+      objectReference: {fileID: 0}
     - target: {fileID: 4799965068066069356, guid: db6e2fee5f4c2b64bbf149a846dca47d, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5075,6 +5079,22 @@ PrefabInstance:
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 8fdeae4ad9839f147a7a6423e3fdfadd, type: 3}
+    - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: cb0b7167257ba7a4faaa39478a8f7f35, type: 3}
+    - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.501
+      objectReference: {fileID: 0}
+    - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 839141403842944040, guid: 81a15fb8fcc2f674abae2cedbb1d99cf, type: 3}
       propertyPath: sounds.Array.data[0].mixerGroup
       value: 
